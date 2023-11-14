@@ -1,9 +1,8 @@
 package aula_atual_cliente;
 
 public class Cliente {
-    private String  nome;
+    private String  nome, cpf;
     private int idade;
-    private String cpf;
 
     public Cliente(String _nome, String _cpf){
         this.nome = _nome;
