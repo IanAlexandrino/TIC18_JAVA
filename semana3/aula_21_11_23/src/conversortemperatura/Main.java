@@ -23,14 +23,14 @@ public class Main {
                 System.out.println("Digite a temperatura em Celsius para ser convertida: ");
                 _temperatura = entrada.nextFloat();
 
-                convTemp.CelsiusFahrenheit(_temperatura);
+                convTemp.celciusParaFahr(_temperatura);
 
             } else if (op == 2){
 
                 System.out.println("Digite a temperatura em Fahrenheit para ser convertida: ");
                 _temperatura = entrada.nextFloat();
 
-                convTemp.FahrenheitCelsius(_temperatura);
+                convTemp.fahrParCelsius(_temperatura);
 
             } else if (op < 1 || op > 3){
 
