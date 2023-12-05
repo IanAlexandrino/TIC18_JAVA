@@ -6,12 +6,12 @@ public class Atendimento {
     private String tipo;
     private boolean urgencia;
     private Paciente paciente;
-    private Procedimento procedimento;
-    private ArrayList<Procedimento> procedimentos;
+    private ProcedimentoCompleto procedimento;
+    private ArrayList<ProcedimentoCompleto> procedimentos;
 
     public Atendimento(){
         paciente = new Paciente();
-        procedimento = new Procedimento();
+        procedimento = new ProcedimentoCompleto();
         procedimentos = new ArrayList<>();
     }
 }
