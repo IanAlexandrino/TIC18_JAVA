@@ -3,6 +3,7 @@ package hospital;
 import java.util.ArrayList;
 
 public class Hospital {
+    private Plantao plantao;
     private Paciente paciente;
     private ArrayList<Paciente> pacientes;
 
@@ -12,6 +13,7 @@ public class Hospital {
     private ArrayList<Procedimento> procedimentos;
 
     public Hospital(){
+        plantao = new Plantao();
         paciente = new Paciente();
         pacientes = new ArrayList<>();
         agentesSaudeObj = new AgentesSaude();
@@ -21,6 +23,10 @@ public class Hospital {
     }
 
     public void Triagem(){
+
+    }
+
+    public static void main(String[] args) {
 
     }
 }
