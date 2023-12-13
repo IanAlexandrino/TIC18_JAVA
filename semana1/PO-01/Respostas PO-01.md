@@ -14,7 +14,25 @@ Objeto: Um objeto é uma instância concreta de uma classe. Ele representa uma e
 
 #### **Exemplos:**
 
+###### Exemplo 1: Ponto em um plano 2D
+
 ![Exemplo 1: Ponto em um plano 2D](Images/Captura%20de%20tela%202023-12-13%20101000.png)
+
+###### Exemplo 2: Livro
+
+![Exemplo 2: Livro](Images/Captura%20de%20tela%202023-12-13%20101404.png)
+
+###### Exemplo 3: Carro
+
+![Exemplo 3: Carro](Images/Captura%20de%20tela%202023-12-13%20101544.png)
+
+###### Exemplo 4: Pessoa
+
+![Exemplo 4: Pessoa](Images/Captura%20de%20tela%202023-12-13%20101705.png)
+
+###### Exemplo 5: Animal
+
+![Exemplo 5: Animal](Images/Captura%20de%20tela%202023-12-13%20101755.png)
 
 ### 2. Como você declara uma variável em Java e quais são os tipos de dados primitivos mais comuns? Faça um paralelo entre isso e a mesma coisa na linguagem C++
 
