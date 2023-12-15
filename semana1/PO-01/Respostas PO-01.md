@@ -78,4 +78,34 @@ Ambas as linguagens compartilham muitos conceitos básicos na declaração de va
 
 ### 3. Explique o conceito de herança em Java e como você pode criar uma subclasse a partir de uma classe existente. Faça um paralelo com C++, apresentando 5 exemplos.
 
+#### **Herança em Java:**
+
+Em Java, a herança é um conceito fundamental da programação orientada a objetos que permite criar uma nova classe baseada em uma classe existente. A nova classe é chamada de subclasse ou classe derivada, e a classe existente é chamada de superclasse ou classe base. A herança permite que a subclasse herde atributos e métodos da superclasse e, ao mesmo tempo, adicione ou modifique seu próprio comportamento.
+
+###### Sintaxe em Java:
+
+![](Images/Captura%20de%20tela%202023-12-15%20043636.png)
+
+###### Exemplo em Java:
+
+![](Images/Captura%20de%20tela%202023-12-15%20043748.png)
+
+#### **Herança em C++:**
+
+O conceito de herança em C++ é semelhante ao de Java, mas a sintaxe é um pouco diferente.
+
+###### Sintaxe em C++:
+
+![](Images/Captura%20de%20tela%202023-12-15%20044024.png)
+
+###### Exemplo em C++:
+
+![](Images/Captura%20de%20tela%202023-12-15%20044132.png)
+
+Aqui estão mais quatro exemplos para ilustrar diferentes aspectos da herança em C++:
+
+![](Images/Captura%20de%20tela%202023-12-15%20044344.png)
+
+Esses exemplos mostram a diversidade de situações em que a herança pode ser aplicada em C++, desde herdar atributos até trabalhar com construtores, métodos e herança múltipla.
+
 ### 4. Quando declaramos uma variável em Java, temos, na verdade, um ponteiro. Em C++ é diferente. Discorra sobre esse aspecto.
