@@ -109,3 +109,19 @@ Aqui estão mais quatro exemplos para ilustrar diferentes aspectos da herança e
 Esses exemplos mostram a diversidade de situações em que a herança pode ser aplicada em C++, desde herdar atributos até trabalhar com construtores, métodos e herança múltipla.
 
 ### 4. Quando declaramos uma variável em Java, temos, na verdade, um ponteiro. Em C++ é diferente. Discorra sobre esse aspecto.
+
+Essa afirmação não é precisa. Em Java, as variáveis de tipos primitivos (como int, float, etc.) armazenam diretamente o valor, não um ponteiro para o valor. Em contraste, em Java, quando lidamos com objetos, o que realmente está sendo manipulado é uma referência ao objeto, não o objeto em si. No entanto, isso é diferente de um ponteiro em C++, pois não oferece o mesmo nível de manipulação de memória e aritmética de ponteiros que o C++ permite.
+
+#### **Java:**
+
+![](Images/Captura%20de%20tela%202023-12-15%20045251.png)
+
+#### **C++:**
+
+![](Images/Captura%20de%20tela%202023-12-15%20045450.png)
+
+Em Java, a manipulação de objetos é feita por meio de referências, enquanto em C++ a manipulação pode ser feita diretamente com o objeto ou usando ponteiros, dependendo do que é necessário.
+
+Em C++, você pode usar ponteiros para gerenciar diretamente a memória, o que proporciona mais controle sobre o uso da memória. No entanto, isso também aumenta a complexidade e a possibilidade de erros relacionados à gestão de memória. Java, por sua vez, oferece gerenciamento automático de memória (coleta de lixo), o que simplifica o desenvolvimento, mas pode ter um custo de desempenho.
+
+Em resumo, em Java, não é correto dizer que todas as variáveis são ponteiros. No entanto, quando se trabalha com objetos, você está lidando com referências a esses objetos, e essa diferença é importante para entender o comportamento do sistema de tipos e a gestão de memória em Java.
