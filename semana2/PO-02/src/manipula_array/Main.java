@@ -11,40 +11,59 @@ public class Main {
 
         int opMenu;
 
-        System.out.println("Digite a opção que você quer: ");
-        opMenu = entrada.nextInt();
+        do {
 
-        switch (opMenu){
+            System.out.println("===============MENU===============\n");
+            System.out.println("1. Crie sua lista de números inteiros");
+            System.out.println("2. Crie uma lista de números inteiros aleatórios");
+            System.out.println("3. Calcule a soma de todos os elementos da sua lista");
+            System.out.println("4. Encontre o maior valor da sua lista");
+            System.out.println("5. Encontre o menor valor da sua lista");
+            System.out.println("0. Sair\n");
 
-            case 1:
+            System.out.println("Opção: ");
+            opMenu = entrada.nextInt();
 
-                manipulaArray.insereUsuario();
-                break;
+            switch (opMenu){
 
-            case 2:
+                case 1:
 
-                manipulaArray.insereElementoAutomatico();
-                break;
+                    manipulaArray.insereUsuario();
+                    break;
 
-            case 3:
+                case 2:
 
-                manipulaArray.calculaSomaTodosElementos();
-                break;
+                    manipulaArray.insereElementoAutomatico();
+                    break;
 
-            case 4:
+                case 3:
 
-                manipulaArray.encontraMaiorValorLista();
-                break;
+                    manipulaArray.calculaSomaTodosElementos();
+                    break;
 
-            case 5:
+                case 4:
 
-                manipulaArray.encontraMenorValorLista();
-                break;
+                    manipulaArray.encontraMaiorValorLista();
+                    break;
 
-            default:
+                case 5:
 
-                System.out.println("Opção errada, tente novamente!");
-        }
+                    manipulaArray.encontraMenorValorLista();
+                    break;
+
+                case 0:
+
+                    System.out.println("Até a próxima!");
+                    break;
+
+                default:
+
+                    System.out.println("Opção errada, tente novamente!");
+
+            }
+
+        } while(opMenu != 0);
+
 
     }
 
