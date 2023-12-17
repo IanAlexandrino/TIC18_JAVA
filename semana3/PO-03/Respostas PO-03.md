@@ -109,3 +109,47 @@ Lidar com exceções em Java envolve o uso de blocos try, catch, finally, além 
 Essas práticas e palavras-chave formam a base para lidar efetivamente com exceções em Java, permitindo que você crie código robusto e resiliente.
 
 ### 4. O que é o bloco "try-catch" em Java? Como ele funciona e por que é importante usá-lo ao lidar com exceções?
+
+O bloco try-catch em Java é uma construção usada para lidar com exceções. Ele permite que você envolva um bloco de código que pode gerar exceções em um bloco try e forneça um ou mais blocos catch para tratar essas exceções de maneira controlada. A estrutura básica é a seguinte:
+
+![](images/Captura%20de%20tela%202023-12-16%20235558.png)
+
+Aqui está uma explicação de como o bloco try-catch funciona:
+
+1. **try:**
+
+    * O bloco try envolve o código que pode gerar exceções.
+
+    * Se uma exceção ocorrer dentro do bloco try, a execução do bloco será interrompida e o controle será transferido para o bloco catch correspondente.
+
+2. **catch:**
+
+    * Os blocos catch especificam o tipo de exceção que podem tratar.
+
+    * Se uma exceção ocorrer no bloco try e coincidir com o tipo de exceção em algum bloco catch, o bloco catch correspondente será executado.
+
+    * Você pode ter vários blocos catch para lidar com diferentes tipos de exceções.
+
+3. **finally (opcional):**
+
+    * O bloco finally é opcional e é usado para conter código que será executado independentemente de ocorrer ou não uma exceção.
+
+    * Este bloco é útil para liberar recursos, como fechar conexões com bancos de dados ou arquivos, garantindo que certas ações ocorram, independentemente do resultado do bloco try.
+
+O uso do bloco try-catch é importante ao lidar com exceções por várias razões:
+
+* **Controle de Fluxo:**
+
+    * O bloco try-catch permite que você controle o fluxo de execução do programa, fornecendo uma maneira de lidar com exceções de maneira controlada, em vez de deixar o programa terminar abruptamente em caso de erros.
+
+* **Tratamento de Exceções:**
+
+    * Permite que você trate diferentes tipos de exceções de maneira específica. Cada bloco catch pode lidar com um tipo específico de exceção, o que facilita a implementação de lógicas de tratamento diferentes para diferentes situações.
+
+* **Prevenção de Interrupções Não Controladas:**
+
+    * Sem o bloco try-catch, se uma exceção ocorrer, ela pode interromper a execução normal do programa, levando a comportamentos inesperados ou indesejados. O bloco try-catch ajuda a evitar essas interrupções não controladas.
+
+Ao usar o bloco try-catch de forma apropriada, você pode criar código mais robusto e resiliente, lidando de maneira eficaz com situações excepcionais e garantindo um comportamento mais previsível do seu programa.
+
+### 5. Quando é apropriado criar suas próprias exceções personalizadas em Java e como você pode fazer isso? Dê um exemplo de quando e por que você criaria uma exceção personalizada.
