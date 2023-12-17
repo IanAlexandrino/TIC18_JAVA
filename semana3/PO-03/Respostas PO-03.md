@@ -153,3 +153,35 @@ O uso do bloco try-catch é importante ao lidar com exceções por várias razõ
 Ao usar o bloco try-catch de forma apropriada, você pode criar código mais robusto e resiliente, lidando de maneira eficaz com situações excepcionais e garantindo um comportamento mais previsível do seu programa.
 
 ### 5. Quando é apropriado criar suas próprias exceções personalizadas em Java e como você pode fazer isso? Dê um exemplo de quando e por que você criaria uma exceção personalizada.
+
+Criar suas próprias exceções personalizadas em Java é apropriado quando você tem uma situação específica em seu código que não pode ser adequadamente representada por uma exceção padrão do Java. Isso é útil quando você deseja fornecer informações mais específicas sobre o motivo da exceção, facilitando o entendimento e o tratamento por parte do desenvolvedor que usa sua classe ou biblioteca.
+
+Para criar uma exceção personalizada em Java, você geralmente estende a classe Exception ou uma de suas subclasses. Aqui está um exemplo simples de como você pode criar uma exceção personalizada:
+
+![](images/Captura%20de%20tela%202023-12-17%20000618.png)
+
+Neste exemplo, MinhaExcecaoPersonalizada estende a classe Exception e possui dois construtores: um sem argumentos, que fornece uma mensagem padrão, e outro que permite que você forneça uma mensagem personalizada.
+
+* **Semântica Específica:**
+
+    * Quando a semântica da sua exceção é mais específica do que as exceções padrão fornecidas pelo Java, uma exceção personalizada pode tornar o código mais claro e expressivo.
+
+* **Informações Adicionais:**
+
+    * Quando você precisa fornecer informações adicionais sobre a causa ou o contexto da exceção, uma exceção personalizada permite que você inclua essas informações.
+
+* **Facilitar o Tratamento:**
+
+    * Quando você deseja que os desenvolvedores que usam sua classe ou biblioteca possam tratar situações excepcionais de maneira mais específica e granular.
+
+* **Encapsulamento:**
+
+    * Ao encapsular a lógica de tratamento de erros dentro de suas próprias exceções personalizadas, você pode centralizar a lógica de tratamento de erros relacionada em um local, facilitando a manutenção do código.
+
+**Exemplo de cenário em que você criaria uma exceção personalizada:**
+
+Suponha que você está desenvolvendo uma classe para representar uma conta bancária e deseja lançar uma exceção personalizada quando um saldo insuficiente é detectado ao tentar realizar uma operação de saque. Neste caso, uma exceção personalizada pode fornecer uma maneira clara e específica de lidar com essa situação:
+
+![](images/Captura%20de%20tela%202023-12-17%20000911.png)
+
+Neste exemplo, a exceção SaldoInsuficienteException é lançada quando o método sacar detecta que o saldo atual é insuficiente para realizar o saque. Isso fornece uma maneira específica de lidar com essa situação, tornando o código mais compreensível e permitindo que os desenvolvedores que usam a classe ContaBancaria tratem esse tipo específico de exceção de maneira apropriada.
