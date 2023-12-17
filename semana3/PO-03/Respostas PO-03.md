@@ -34,4 +34,30 @@ Um exemplo simples de uso de exceções em Java seria o bloco try-catch:
 
 Isso permite que você escreva código que lida com situações excepcionais de uma maneira mais controlada e estruturada.
 
-### 2. 
+### 2.  Pesquise sobre a diferença entre exceções verificadas e não verificadas em Java. Dê exemplos de cada uma. 
+
+Em Java, as exceções podem ser classificadas em dois tipos principais: exceções verificadas (checked exceptions) e exceções não verificadas (unchecked exceptions).
+
+#### **Exceções Verificadas (Checked Exceptions):**
+
+    * Essas são exceções que o compilador obriga a lidar explicitamente, seja usando um bloco try-catch para capturar a exceção ou declarando que o método que pode lançar a exceção usa a palavra-chave throws.
+
+    * Geralmente, as exceções verificadas indicam condições que o programador pode antecipar e lidar de maneira apropriada.
+
+    * Exemplos comuns de exceções verificadas incluem IOException, FileNotFoundException, SQLException, entre outras.
+
+![](images/Captura%20de%20tela%202023-12-16%20233741.png)
+
+#### **Exceções Verificadas (Checked Exceptions):**
+
+    * Essas são exceções que o compilador não obriga a lidar explicitamente. Geralmente, são erros de programação, como divisão por zero, acesso a um índice inválido em um array, entre outros.
+
+    * Exceções não verificadas são subclasses de RuntimeException ou Error (ou suas subclasses).
+
+    * Exemplos comuns de exceções não verificadas incluem ArithmeticException, ArrayIndexOutOfBoundsException, NullPointerException, entre outras.
+
+![](images/Captura%20de%20tela%202023-12-16%20234118.png)
+
+Em resumo, a diferença principal entre exceções verificadas e não verificadas em Java é que as exceções verificadas devem ser tratadas explicitamente no código (usando try-catch ou declarando throws), enquanto as exceções não verificadas podem ser tratadas opcionalmente. Exceções verificadas normalmente representam condições que o programador pode prever e lidar, enquanto exceções não verificadas geralmente indicam erros de programação ou situações imprevisíveis.
+
+### 3. Como você pode lidar com exceções em Java? Quais são as palavras-chave e as práticas comuns para tratamento de exceções?
