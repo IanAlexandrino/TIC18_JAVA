@@ -108,11 +108,27 @@ public class Main {
                         auxNumInt1 = (int) auxNumFloat1;
                         auxNumInt2 = (int) auxNumFloat2;
 
-                        System.out.println(calculadora.operacaoDivisaoInt(auxNumInt1, auxNumInt2));
+                        try {
+
+                            System.out.println(calculadora.operacaoDivisaoInt(auxNumInt1, auxNumInt2));
+
+                        } catch (DivisionByZeroException e){
+
+                            System.out.println("\nErro na operação: " + e.getMessage());
+
+                        }
 
                     } else {
 
-                        System.out.println(calculadora.operacaoDivisaoFloat(auxNumFloat1, auxNumFloat2));
+                        try {
+
+                            System.out.println(calculadora.operacaoDivisaoFloat(auxNumFloat1, auxNumFloat2));
+
+                        } catch (DivisionByZeroException e){
+
+                            System.out.println("\nErro na operação: " + e.getMessage());
+
+                        }
 
                     }
                     break;
