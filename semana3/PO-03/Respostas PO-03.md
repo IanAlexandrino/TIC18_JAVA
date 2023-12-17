@@ -61,3 +61,51 @@ Em Java, as exceções podem ser classificadas em dois tipos principais: exceç�
 Em resumo, a diferença principal entre exceções verificadas e não verificadas em Java é que as exceções verificadas devem ser tratadas explicitamente no código (usando try-catch ou declarando throws), enquanto as exceções não verificadas podem ser tratadas opcionalmente. Exceções verificadas normalmente representam condições que o programador pode prever e lidar, enquanto exceções não verificadas geralmente indicam erros de programação ou situações imprevisíveis.
 
 ### 3. Como você pode lidar com exceções em Java? Quais são as palavras-chave e as práticas comuns para tratamento de exceções?
+
+Lidar com exceções em Java envolve o uso de blocos try, catch, finally, além das palavras-chave throw e throws. Aqui estão algumas práticas comuns e palavras-chave associadas ao tratamento de exceções em Java:
+
+### **try, catch, e finally:**
+
+    * O bloco try é usado para envolver o código que pode gerar uma exceção.
+
+    * O bloco catch é usado para capturar exceções específicas e fornecer um bloco de código para tratamento.
+
+    * O bloco finally é opcional e é usado para conter código que será executado independentemente de uma exceção ter sido lançada ou não.
+
+![](images/Captura%20de%20tela%202023-12-16%20234733.png)
+
+### **throw:**
+
+    * A palavra-chave throw é usada para explicitamente lançar uma exceção em um programa. Isso geralmente é feito quando uma condição de erro é detectada e o programador deseja sinalizar a ocorrência de uma exceção.
+
+![](images/Captura%20de%20tela%202023-12-16%20234837.png)
+
+### **throws:**
+
+    * A palavra-chave throws é usada na assinatura de um método para indicar que o método pode lançar uma ou mais exceções verificadas. Isso alerta o chamador do método de que ele deve lidar com essas exceções ou declarar que ele também pode lançá-las.
+
+![](images/Captura%20de%20tela%202023-12-16%20234939.png)
+
+### **Práticas Comuns:**
+
+#### * Capture Exceções Específicas:
+
+        * Use blocos catch para capturar exceções específicas. Isso permite que você lide de maneira diferente com diferentes tipos de exceções.
+
+#### * Mantenha o Tratamento Mínimo no Bloco try:
+
+        * Coloque apenas o código que pode gerar exceções reais no bloco try. Mantenha o código mínimo nesse bloco para reduzir a possibilidade de pegar exceções que não são relevantes para o código em questão.
+
+#### * Log e/ou Relance Exceções (se apropriado):
+
+        * Em alguns casos, é apropriado logar informações sobre a exceção ou relançá-la após o tratamento. Isso pode ajudar na depuração e na compreensão do fluxo do programa.
+
+#### * Use finally para Liberação de Recursos:
+
+        * O bloco finally é frequentemente usado para liberar recursos, como fechar conexões de banco de dados, arquivos ou sockets, independentemente de uma exceção ter sido lançada ou não.
+
+![](images/Captura%20de%20tela%202023-12-16%20235303.png)
+
+Essas práticas e palavras-chave formam a base para lidar efetivamente com exceções em Java, permitindo que você crie código robusto e resiliente.
+
+### 4. O que é o bloco "try-catch" em Java? Como ele funciona e por que é importante usá-lo ao lidar com exceções?
