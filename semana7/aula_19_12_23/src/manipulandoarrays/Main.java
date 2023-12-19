@@ -16,8 +16,9 @@ public class Main {
         array.preencheNome("Daniel");
         array.preencheNome("Janio");
         array.preencheNome("Lucas");
-        array.preencheNome("teste");
+
         System.out.println(array.contemNome("Pedro"));
+        System.out.println(array.contemNomeLista("Pedro"));
 
     }
 }

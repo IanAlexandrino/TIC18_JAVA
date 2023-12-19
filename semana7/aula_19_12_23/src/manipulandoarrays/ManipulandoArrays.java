@@ -1,10 +1,13 @@
 package manipulandoarrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class ManipulandoArrays {
 
     private  String nomes[];
+    private List lista;
     private int contador;
 
 
@@ -44,6 +47,24 @@ public class ManipulandoArrays {
         }
 
         return contemNome;
+    }
+
+    public boolean contemNomeLista(String _nome){
+
+        boolean contemNomeLista = false;
+
+        lista = Arrays.asList(nomes);
+
+        for (Object nome : lista ){
+
+            if (nome == _nome){
+                contemNomeLista = true;
+                break;
+            }
+
+        }
+
+        return contemNomeLista;
     }
 
 }
