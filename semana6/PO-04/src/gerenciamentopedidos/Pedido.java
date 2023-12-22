@@ -20,6 +20,12 @@ public class Pedido {
 
     }
 
+    public void adicionaItensPedido(ArrayList itensPedido){
+
+        itensPedido.addAll(itensPedido);
+
+    }
+
     public float totalPedido(){
 
         float totalPedido = 0;
