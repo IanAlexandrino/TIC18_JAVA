@@ -92,4 +92,11 @@ public class Pedido {
         }
 
     }
+
+    public void criaItemPedido(String nomeItem, float valorItem){
+
+        itemPedido.setNomeItem(nomeItem);
+        itemPedido.setValorItem(valorItem);
+
+    }
 }
