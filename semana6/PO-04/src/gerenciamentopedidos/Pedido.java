@@ -56,6 +56,29 @@ public class Pedido {
         return totalPedido;
     }
 
+    public float totalPedido(int nmrPrestacoes, float juros){
+
+        float totalPedido = 0;
+
+        for (ItemPedido itemPedido : itensPedido){
+
+            totalPedido += itemPedido.getValorItem();
+
+        }
+
+        float prestacao = totalPedido / nmrPrestacoes;
+        totalPedido = 0;
+
+        for (int i = 0 ; i < nmrPrestacoes ; i++){
+
+            prestacao = prestacao * (1 - juros / 100);
+            totalPedido += prestacao;
+
+        }
+
+        return totalPedido;
+    }
+
     public void informacoesPedido(){
 
         int i = 1;
