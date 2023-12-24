@@ -5,13 +5,14 @@ import java.util.*;
 public class Pedido {
 
     private int nmrPedido;
-    private String cpfCliente;
-    private ArrayList<ItemPedido> itensPedido;
-    private ItemPedido itemPedido;
+    private String cpfCliente = "";
+    private ArrayList<ItemPedido> itensPedido = new ArrayList<>();
+    private ItemPedido itemPedido = new ItemPedido();
+    private Random random = new Random();
+    private Scanner entrada = new Scanner(System.in);
 
     public Pedido(){
-        itensPedido = new ArrayList<>();
-        itemPedido = new ItemPedido();
+        nmrPedido = random.nextInt(1000);
     }
 
     public void adicionaItensPedido(ItemPedido itemPedido){
@@ -87,16 +88,139 @@ public class Pedido {
         System.out.println("Número do pedido: " + nmrPedido);
         System.out.println("CPF do cliente: " + cpfCliente);
         System.out.println("Itens do pedido: ");
-        for (ItemPedido itensPedido : itensPedido){
-            System.out.println(i + ". " + itensPedido.getNomeItem());
+        for (ItemPedido itemPedido : itensPedido){
+            System.out.println(i + ". Item: " + itemPedido.getNomeItem() + " Valor: R$" + itemPedido.getValorItem() + "\n");
+            i++;
         }
 
     }
 
-    public void criaItemPedido(String nomeItem, float valorItem){
+    public void adicionarPedidosUnicos(){
 
-        itemPedido.setNomeItem(nomeItem);
-        itemPedido.setValorItem(valorItem);
+        int auxQntdItem;
+        String auxCpf;
+        String auxNomeItem;
+        float auxValorItem;
+
+        if (cpfCliente == ""){
+
+            System.out.println("Informe o CPF do cliente: ");
+            auxCpf = entrada.nextLine();
+            cpfCliente = auxCpf;
+
+            System.out.println("Quantos itens você quer adicionar no seu pedido? ");
+            auxQntdItem = entrada.nextInt();
+            entrada.nextLine();
+
+            for (int i = 0 ; i < auxQntdItem ; i++) {
+
+                ItemPedido auxItemPedido = new ItemPedido();
+
+                System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
+                auxNomeItem = entrada.nextLine();
+                System.out.println(auxNomeItem);
+
+                System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
+                auxValorItem = entrada.nextFloat();
+                entrada.nextLine();
+                System.out.println(auxValorItem);
+
+                auxItemPedido.adicionarItem(auxNomeItem, auxValorItem);
+                System.out.println(auxItemPedido.getNomeItem() + auxItemPedido.getValorItem());
+
+                adicionaItensPedido(auxItemPedido);
+
+            }
+
+        } else {
+
+                System.out.println("Quantos itens você quer adicionar no seu pedido? ");
+                auxQntdItem = entrada.nextInt();
+                entrada.nextLine();
+
+                for (int i = 0; i < auxQntdItem; i++) {
+
+                    ItemPedido auxItemPedido = new ItemPedido();
+
+                    System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
+                    auxNomeItem = entrada.nextLine();
+                    System.out.println(auxNomeItem);
+
+                    System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
+                    auxValorItem = entrada.nextFloat();
+                    entrada.nextLine();
+                    System.out.println(auxValorItem);
+
+                    auxItemPedido.adicionarItem(auxNomeItem, auxValorItem);
+                    System.out.println(auxItemPedido.getNomeItem() + auxItemPedido.getValorItem());
+
+                    adicionaItensPedido(auxItemPedido);
+
+                }
+
+        }
 
     }
+
+    public void adicionarPedidosLista(){
+
+        ArrayList<ItemPedido> auxItensPedido = new ArrayList<>();
+        int auxQntdItem;
+        String auxCpf;
+        String auxNomeItem;
+        float auxValorItem;
+
+        if (cpfCliente == "") {
+
+            System.out.println("Informe o CPF do cliente: ");
+            auxCpf = entrada.nextLine();
+            cpfCliente = auxCpf;
+
+            System.out.println("Quantos itens você quer adicionar no seu pedido? ");
+            auxQntdItem = entrada.nextInt();
+
+            for (int i = 0 ; i < auxQntdItem ; i++){
+                System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
+                auxNomeItem = entrada.nextLine();
+
+                System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
+                auxValorItem = entrada.nextFloat();
+
+                itemPedido.setNomeItem(auxNomeItem);
+                itemPedido.setValorItem(auxValorItem);
+
+                auxItensPedido.add(itemPedido);
+
+            }
+
+            adicionaItensPedido(auxItensPedido);
+            auxItensPedido.clear();
+
+        } else {
+
+            System.out.println("Quantos itens você quer adicionar no seu pedido? ");
+            auxQntdItem = entrada.nextInt();
+
+            for (int i = 0 ; i < auxQntdItem ; i++){
+                System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
+                auxNomeItem = entrada.nextLine();
+
+                System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
+                auxValorItem = entrada.nextFloat();
+
+                itemPedido.setNomeItem(auxNomeItem);
+                itemPedido.setValorItem(auxValorItem);
+
+                auxItensPedido.add(itemPedido);
+
+            }
+
+            adicionaItensPedido(auxItensPedido);
+            auxItensPedido.clear();
+
+        }
+
+
+    }
+
 }
