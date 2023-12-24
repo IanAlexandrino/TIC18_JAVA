@@ -39,6 +39,23 @@ public class Pedido {
         return totalPedido;
     }
 
+    public float totalPedido(int descontoVista){
+
+        float totalPedido = 0;
+
+        for (ItemPedido itemPedido : itensPedido){
+
+            totalPedido += itemPedido.getValorItem();
+
+        }
+
+        float desconto = (descontoVista / 100) * totalPedido;
+
+        totalPedido = totalPedido - desconto;
+
+        return totalPedido;
+    }
+
     public void informacoesPedido(){
 
         int i = 1;
