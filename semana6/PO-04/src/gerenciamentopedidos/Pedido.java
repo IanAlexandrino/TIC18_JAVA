@@ -21,7 +21,7 @@ public class Pedido {
 
     }
 
-    public void adicionaItensPedido(ArrayList itensPedido){
+    public void adicionaItensPedido(List itensPedido){
 
         itensPedido.addAll(itensPedido);
 
@@ -118,15 +118,12 @@ public class Pedido {
 
                 System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
                 auxNomeItem = entrada.nextLine();
-                System.out.println(auxNomeItem);
 
                 System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
                 auxValorItem = entrada.nextFloat();
                 entrada.nextLine();
-                System.out.println(auxValorItem);
 
                 auxItemPedido.adicionarItem(auxNomeItem, auxValorItem);
-                System.out.println(auxItemPedido.getNomeItem() + auxItemPedido.getValorItem());
 
                 adicionaItensPedido(auxItemPedido);
 
@@ -144,15 +141,12 @@ public class Pedido {
 
                     System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
                     auxNomeItem = entrada.nextLine();
-                    System.out.println(auxNomeItem);
 
                     System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
                     auxValorItem = entrada.nextFloat();
                     entrada.nextLine();
-                    System.out.println(auxValorItem);
 
                     auxItemPedido.adicionarItem(auxNomeItem, auxValorItem);
-                    System.out.println(auxItemPedido.getNomeItem() + auxItemPedido.getValorItem());
 
                     adicionaItensPedido(auxItemPedido);
 
@@ -178,18 +172,22 @@ public class Pedido {
 
             System.out.println("Quantos itens você quer adicionar no seu pedido? ");
             auxQntdItem = entrada.nextInt();
+            entrada.nextLine();
 
             for (int i = 0 ; i < auxQntdItem ; i++){
+
+                ItemPedido auxItemPedido = new ItemPedido();
+
                 System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
                 auxNomeItem = entrada.nextLine();
 
                 System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
                 auxValorItem = entrada.nextFloat();
+                entrada.nextLine();
 
-                itemPedido.setNomeItem(auxNomeItem);
-                itemPedido.setValorItem(auxValorItem);
+                auxItemPedido.adicionarItem(auxNomeItem, auxValorItem);
 
-                auxItensPedido.add(itemPedido);
+                auxItensPedido.add(auxItemPedido);
 
             }
 
@@ -200,18 +198,22 @@ public class Pedido {
 
             System.out.println("Quantos itens você quer adicionar no seu pedido? ");
             auxQntdItem = entrada.nextInt();
+            entrada.nextLine();
 
             for (int i = 0 ; i < auxQntdItem ; i++){
+
+                ItemPedido auxItemPedido = new ItemPedido();
+
                 System.out.println("Insira o nome do seu " + (i + 1) + "º item: ");
                 auxNomeItem = entrada.nextLine();
 
                 System.out.println("Insira o valor do seu " + (i + 1) + "º item: ");
                 auxValorItem = entrada.nextFloat();
+                entrada.nextLine();
 
-                itemPedido.setNomeItem(auxNomeItem);
-                itemPedido.setValorItem(auxValorItem);
+                auxItemPedido.adicionarItem(auxNomeItem, auxValorItem);
 
-                auxItensPedido.add(itemPedido);
+                auxItensPedido.add(auxItemPedido);
 
             }
 

@@ -12,6 +12,7 @@ public class Main {
 
         boolean app = true;
         int opMenu;
+        int auxDescontoVista;
 
         do {
 
@@ -21,6 +22,8 @@ public class Main {
             System.out.print("| Opção 2 - Adicionar Lista de Itens ao Pedido  |\n");
             System.out.print("| Opção 3 - Visualizar Pedido                   |\n");
             System.out.print("| Opção 4 - Valor Total do Pedido               |\n");
+            System.out.print("| Opção 5 - Valor Total do Pedido a vista       |\n");
+            System.out.print("| Opção 6 - Valor Total do Pedido a prazo       |\n");
             System.out.print("| Opção 0 - Sair                                |\n");
             System.out.print("|-----------------------------------------------|\n");
             System.out.print("Digite uma opção: ");
@@ -41,7 +44,18 @@ public class Main {
 
             } else if (opMenu == 4) {
 
-                pedido.totalPedido();
+                System.out.println("Valor total do pedido: R$" + pedido.totalPedido());
+
+            } else if (opMenu == 5) {
+
+                System.out.println("Informe o desonto do pedido a vista: ");
+                auxDescontoVista = entrada.nextInt();
+
+                System.out.println(pedido.totalPedido(auxDescontoVista));
+
+            } else if (opMenu == 6) {
+
+
 
             } else if (opMenu == 0) {
 
