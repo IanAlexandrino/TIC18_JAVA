@@ -32,6 +32,7 @@ public class Garagem {
             carro.setModelo("carro");
             carro.setCor("verde");
             carro.setAno(2019);
+            carro.setEletrico(true);
 
             veiculos.add(carro);
 
@@ -42,6 +43,7 @@ public class Garagem {
             moto.setModelo("moto");
             moto.setCor("azul");
             moto.setAno(2020);
+            moto.setEletrico(true);
 
             veiculos.add(moto);
 
@@ -55,6 +57,7 @@ public class Garagem {
         String auxModelo;
         String auxCor;
         int auxAno;
+        boolean auxEletrico;
 
         System.out.println("Informe os dados do veículo que você quer remover: ");
 
@@ -67,9 +70,12 @@ public class Garagem {
         System.out.println("Ano: ");
         auxAno = entrada.nextInt();
 
+        System.out.println("Veículo elétrico? ");
+        auxEletrico = entrada.nextBoolean();
+
         for (Veiculo veiculo : veiculos){
 
-            if (veiculo.getModelo() == auxModelo && veiculo.getCor() == auxCor && veiculo.getAno() == auxAno){
+            if (veiculo.getModelo() == auxModelo && veiculo.getCor() == auxCor && veiculo.getAno() == auxAno && veiculo.getEletrico() == auxEletrico){
 
                 veiculos.remove(veiculo);
 
@@ -82,7 +88,7 @@ public class Garagem {
     public void listaVeiculos(){
 
         for (Veiculo veiculo : veiculos){
-            System.out.println(veiculo);
+            System.out.println("Modelo: " + veiculo.getModelo() + "\nCor: " + veiculo.getCor() + "\nAno: " + veiculo.getAno() + "\nVeículo elétrico? " + veiculo.getEletrico());
         }
 
     }
