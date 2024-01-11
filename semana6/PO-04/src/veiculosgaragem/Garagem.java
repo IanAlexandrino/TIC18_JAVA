@@ -15,6 +15,14 @@ public class Garagem {
 
     }
 
+    public void setTomadaCargaEletrica(boolean tomadaCargaEletrica) {
+        this.tomadaCargaEletrica = tomadaCargaEletrica;
+    }
+
+    public boolean getTomadaCargaEletrica() {
+        return this.tomadaCargaEletrica;
+    }
+
     public void estacionar(Veiculo veiculo){
 
         veiculos.add(veiculo);

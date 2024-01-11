@@ -62,7 +62,17 @@ abstract class Veiculo {
 
     public void estacionar(Garagem garagem){
 
-        garagem.estacionar();
+        garagem.estacionar(this);
+
+        if (garagem.getTomadaCargaEletrica() == true && this.eletrico == true){
+
+            System.out.println("Veículo carregando!");
+
+        } else {
+
+            System.out.println("Veículo estacionado!");
+
+        }
 
     }
 }

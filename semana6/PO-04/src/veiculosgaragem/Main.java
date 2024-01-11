@@ -21,6 +21,14 @@ public class Main {
         garagem.estacionar(carro);
         garagem.estacionar(moto);
         garagem.listaVeiculos();
+
+        carro = new Carro("carro", "roxo", 2017, false);
+        moto = new Moto("moto", "preto", 2023, true);
+
+        carro.estacionar(garagem);
+        moto.estacionar(garagem);
+
+        garagem.listaVeiculos();
     }
 
 }
