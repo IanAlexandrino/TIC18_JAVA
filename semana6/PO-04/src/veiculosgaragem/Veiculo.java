@@ -7,6 +7,15 @@ abstract class Veiculo {
     private int ano;
     private boolean eletrico;
 
+    public Veiculo(String modelo, String cor, int ano, boolean eletrico){
+
+        this.modelo = modelo;
+        this.cor = cor;
+        this.ano = ano;
+        this.eletrico = eletrico;
+
+    }
+
     public void setModelo(String modelo) {
         this.modelo = modelo;
     }
@@ -49,5 +58,11 @@ abstract class Veiculo {
 
     public String parar(){
         return "Veículo parado!";
+    }
+
+    public void estacionar(Garagem garagem){
+
+        garagem.estacionar();
+
     }
 }

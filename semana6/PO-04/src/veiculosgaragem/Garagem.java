@@ -8,46 +8,16 @@ public class Garagem {
     private ArrayList<Veiculo> veiculos;
     private boolean tomadaCargaEletrica;
 
-    public Garagem (){
+    public Garagem (boolean tomadaCargaEletrica){
 
+        this.tomadaCargaEletrica = tomadaCargaEletrica;
         veiculos = new ArrayList();
 
     }
 
-    public void estacionar(){
+    public void estacionar(Veiculo veiculo){
 
-        Scanner entrada = new Scanner(System.in);
-        int op;
-
-        System.out.println("Qual o tipo do seu veículo?");
-
-        System.out.println("1. Carro");
-        System.out.println("2. Moto");
-
-        op = entrada.nextInt();
-
-        if (op == 1){
-
-            Carro carro = new Carro();
-            carro.setModelo("carro");
-            carro.setCor("verde");
-            carro.setAno(2019);
-            carro.setEletrico(true);
-
-            veiculos.add(carro);
-
-
-        } else if (op == 2){
-
-            Moto moto = new Moto();
-            moto.setModelo("moto");
-            moto.setCor("azul");
-            moto.setAno(2020);
-            moto.setEletrico(true);
-
-            veiculos.add(moto);
-
-        }
+        veiculos.add(veiculo);
 
     }
 
