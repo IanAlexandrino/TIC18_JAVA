@@ -7,14 +7,11 @@ public class Veiculo {
     private String modelo;
     private ArrayList<Trajeto> trajetos;
 
-    public Veiculo(){
+    public Veiculo(String modelo){
 
+        this.modelo = modelo;
         trajetos = new ArrayList<>();
 
-    }
-
-    public void setModelo(String modelo) {
-        this.modelo = modelo;
     }
 
     public String getModelo() {
