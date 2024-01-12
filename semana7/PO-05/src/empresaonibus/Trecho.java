@@ -4,6 +4,7 @@ public class Trecho {
 
     private PontosParada origemTrecho;
     private PontosParada destinoTrecho;
+    private int intervalo;
 
     public Trecho(){
 
@@ -23,5 +24,13 @@ public class Trecho {
 
     public void getDestinoTrecho() {
         System.out.println(destinoTrecho.getLocal());
+    }
+
+    public void setIntervalo(int intervalo) {
+        this.intervalo = intervalo;
+    }
+
+    public int getIntervalo() {
+        return intervalo;
     }
 }
