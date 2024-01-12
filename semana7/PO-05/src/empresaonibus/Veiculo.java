@@ -5,11 +5,11 @@ import java.util.ArrayList;
 public class Veiculo {
 
     private String modelo;
-    private ArrayList<PontosParada> pontosParadas;
+    private ArrayList<Trajeto> trajetos;
 
     public Veiculo(){
 
-        pontosParadas = new ArrayList<>();
+        trajetos = new ArrayList<>();
 
     }
 
@@ -21,14 +21,14 @@ public class Veiculo {
         return modelo;
     }
 
-    public void setPontosParadas(PontosParada pontosParada) {
-        pontosParadas.add(pontosParada);
+    public void setTrajetos(Trajeto trajeto) {
+        trajetos.add(trajeto);
     }
 
-    public void getPontosParadas() {
-        for (PontosParada pontosParada : pontosParadas){
+    public void getTrajetos() {
+        for (Trajeto trajeto : trajetos){
 
-            System.out.println(pontosParada);
+            System.out.println(trajeto);
 
         }
     }
