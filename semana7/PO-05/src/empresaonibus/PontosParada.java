@@ -4,7 +4,9 @@ public class PontosParada {
 
     private String local;
 
-    public PontosParada(){
+    public PontosParada(String local){
+
+        this.local = local;
 
     }
 
