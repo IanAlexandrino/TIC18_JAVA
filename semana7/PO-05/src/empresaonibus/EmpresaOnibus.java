@@ -66,6 +66,10 @@ public class EmpresaOnibus {
         }
     }
 
+    public void gerenciaTrajetoVeiculo(){
+
+    }
+
     public static void main(String[] args) {
 
 
