@@ -5,6 +5,8 @@ import java.util.ArrayList;
 public class Trajeto {
 
     private ArrayList<Trecho> trajeto;
+    private String trajetoAtual;
+    private Checkpoint checkpoint;
 
     public Trajeto(){
 

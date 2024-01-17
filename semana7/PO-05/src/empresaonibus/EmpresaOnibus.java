@@ -70,6 +70,10 @@ public class EmpresaOnibus {
 
     }
 
+    public void simulaViagem(){
+
+    }
+
     public static void main(String[] args) {
 
 
