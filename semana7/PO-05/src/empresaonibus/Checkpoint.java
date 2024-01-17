@@ -2,15 +2,26 @@ package empresaonibus;
 
 public class Checkpoint {
 
-    private final String checkpoint;
+    private String localCheckpoint;
+    private String horaCheckpoint;
 
-    public Checkpoint(String checkpoint){
-
-        this.checkpoint = checkpoint;
+    public Checkpoint(){
 
     }
 
-    public String getCheckpoint() {
-        return checkpoint;
+    public void setLocalCheckpoint(String localCheckpoint) {
+        this.localCheckpoint = localCheckpoint;
+    }
+
+    public String getLocalCheckpoint() {
+        return localCheckpoint;
+    }
+
+    public void setHoraCheckpoint(String horaCheckpoint) {
+        this.horaCheckpoint = horaCheckpoint;
+    }
+
+    public String getHoraCheckpoint() {
+        return horaCheckpoint;
     }
 }
