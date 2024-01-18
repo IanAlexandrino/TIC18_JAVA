@@ -20,7 +20,7 @@ public class Jornada {
     }
 
     public void getMotorista() {
-        System.out.println("Motorista direcionado para a jornada: " + motorista.getNome());
+        System.out.println("Motorista designado para a jornada: " + motorista.getNome());
     }
 
     public void setVeiculo(Veiculo veiculo) {
@@ -28,7 +28,7 @@ public class Jornada {
     }
 
     public void getVeiculo() {
-        System.out.println("Veículo designado para jornada: " + veiculo.getModelo());
+        System.out.println("Veículo designado para a jornada: " + veiculo.getModelo());
     }
 
     public void setTrajetos(Trajeto trajeto) {

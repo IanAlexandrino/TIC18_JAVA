@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Cobrador {
 
     private String nome;
-    private Jornada jornada;
     private ArrayList<Trajeto> trajetos;
 
     public Cobrador(String nome){
@@ -15,12 +14,8 @@ public class Cobrador {
 
     }
 
-    public void setJornada(int intervaloTempo) {
-        this.jornada = new Jornada(intervaloTempo);
-    }
-
-    public void getJornada() {
-        System.out.println(jornada.getIntervaloTempo());
+    public String getNome() {
+        return nome;
     }
 
     public void setTrajetos(Trajeto trajeto) {
