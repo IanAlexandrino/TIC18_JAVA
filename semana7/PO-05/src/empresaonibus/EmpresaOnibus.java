@@ -50,9 +50,11 @@ public class EmpresaOnibus {
     }
 
     public void getCobradores() {
+        System.out.println("Cobradores:\n");
         for (Cobrador cobrador : cobradores){
 
-            System.out.println(cobrador);
+            System.out.println("Cobrador: " + cobrador.getNome());
+            cobrador.
 
         }
     }
@@ -62,9 +64,26 @@ public class EmpresaOnibus {
     }
 
     public void getPassageiros() {
+        System.out.println("Passageiros:\n");
         for (Passageiro passageiro : passageiros){
 
-            System.out.println(passageiro);
+            System.out.println("Passageiro: " + passageiro.getNome());
+            System.out.println("Tipo de cartão do passageiro: " + passageiro.getCartaoPassageiro());
+            passageiro.getTrechoPassageiro();
+            System.out.println("---------------------------------------");
+
+        }
+    }
+
+    public void setPontosParadas(PontosParada pontosParada) {
+        this.pontosParadas.add(pontosParada);
+    }
+
+    public void getPontosParadas() {
+        System.out.println("Pontos de parada:\n");
+        for (PontosParada pontosParada : pontosParadas){
+
+            System.out.println("Local: " + pontosParada.getLocal());
 
         }
     }
@@ -77,7 +96,7 @@ public class EmpresaOnibus {
 
     }
 
-    public void menuCadastro(){
+    public static void menuCadastro(){
 
         Scanner entrada = new Scanner(System.in);
         boolean auxwhile = true;
@@ -92,7 +111,7 @@ public class EmpresaOnibus {
             System.out.print("| Opção 3 - Cadastro de Cobradores        |\n");
             System.out.print("| Opção 4 - Cadastro de Passageiros       |\n");
             System.out.print("| Opção 5 - Cadastro de Pontos de parada  |\n");
-            System.out.print("| Opção 6 - Sair                          |\n");
+            System.out.print("| Opção 6 - Voltar                        |\n");
             System.out.print("|-----------------------------------------|\n");
             System.out.print("Digite uma opção: ");
 
@@ -125,15 +144,15 @@ public class EmpresaOnibus {
 
     }
 
-    public void menuPesquisa(){
+    public static void menuPesquisa(){
 
     }
 
-    public void menuViagem(){
+    public static void menuViagem(){
 
     }
 
-    public void main(String[] args) {
+    public static void main(String[] args) {
 
         Scanner entrada = new Scanner(System.in);
         boolean auxwhile = true;
@@ -155,15 +174,15 @@ public class EmpresaOnibus {
             switch (auxMenuPrincipal){
 
                 case 1:
-                    this.menuCadastro();
+                    menuCadastro();
                     break;
 
                 case 2:
-                    this.menuPesquisa();
+                    menuPesquisa();
                     break;
 
                 case 3:
-                    this.menuViagem();
+                    menuViagem();
                     break;
 
                 case 4:
