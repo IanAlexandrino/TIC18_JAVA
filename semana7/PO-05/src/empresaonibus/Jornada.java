@@ -6,6 +6,7 @@ public class Jornada {
 
     private Motorista motorista;
     private Veiculo veiculo;
+    private Cobrador cobrador;
     private ArrayList<Trajeto> trajetos;
     private int intervaloTempo;
 
@@ -20,15 +21,37 @@ public class Jornada {
     }
 
     public void getMotorista() {
-        System.out.println("Motorista direcionado para a jornada: " + motorista.getNome());
+        System.out.println("Motorista designado para a jornada: " + motorista.getNome());
     }
 
     public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
 
-    public Veiculo getVeiculo() {
-        return veiculo;
+    public void getVeiculo() {
+        System.out.println("Veículo designado para a jornada: " + veiculo.getModelo());
+    }
+
+    public void setCobrador(Cobrador cobrador) {
+        this.cobrador = cobrador;
+    }
+
+    public void getCobrador() {
+        System.out.println("Cobrador designado para a jornada: " + cobrador.getNome());
+    }
+
+    public void setTrajetos(Trajeto trajeto) {
+        this.trajetos.add(trajeto);
+    }
+
+    public void getTrajetos() {
+        int i = 0;
+        for (Trajeto trajeto : trajetos){
+            i++;
+            System.out.println(i + "° Trajeto: ");
+            trajeto.getTrajeto();
+
+        }
     }
 
     public void setIntervaloTempo(int intervaloTempo) {
