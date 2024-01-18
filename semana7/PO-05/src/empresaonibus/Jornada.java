@@ -27,8 +27,22 @@ public class Jornada {
         this.veiculo = veiculo;
     }
 
-    public Veiculo getVeiculo() {
-        return veiculo;
+    public void getVeiculo() {
+        System.out.println("Veículo designado para jornada: " + veiculo.getModelo());
+    }
+
+    public void setTrajetos(Trajeto trajeto) {
+        this.trajetos.add(trajeto);
+    }
+
+    public void getTrajetos() {
+        int i = 0;
+        for (Trajeto trajeto : trajetos){
+            i++;
+            System.out.println(i + "° Trajeto: ");
+            trajeto.getTrajeto();
+
+        }
     }
 
     public void setIntervaloTempo(int intervaloTempo) {

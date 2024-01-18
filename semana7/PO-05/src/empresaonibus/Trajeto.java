@@ -19,9 +19,16 @@ public class Trajeto {
     }
 
     public void getTrajeto() {
+        int i = 0;
         for (Trecho trecho : trajeto){
+            i++;
+            System.out.println(i + "° Trecho: ");
 
-            System.out.println(trecho);
+            System.out.println("Origem: ");
+            trecho.getOrigemTrecho();
+
+            System.out.println("Destino: ");
+            trecho.getDestinoTrecho();
 
         }
     }
