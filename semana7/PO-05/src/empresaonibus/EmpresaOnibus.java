@@ -9,6 +9,7 @@ public class EmpresaOnibus {
     private ArrayList<Motorista> motoristas;
     private ArrayList<Cobrador> cobradores;
     private ArrayList<Passageiro> passageiros;
+    private ArrayList<PontosParada> pontosParadas;
 
     public EmpresaOnibus(){
 
@@ -16,6 +17,7 @@ public class EmpresaOnibus {
         motoristas = new ArrayList<>();
         cobradores = new ArrayList<>();
         passageiros = new ArrayList<>();
+        pontosParadas = new ArrayList<>();
 
     }
 
@@ -75,15 +77,59 @@ public class EmpresaOnibus {
 
     }
 
-    public void MenuCadastro(){
+    public void menuCadastro(){
+
+        Scanner entrada = new Scanner(System.in);
+        boolean auxwhile = true;
+        int auxMenuCadastro;
+
+        while (auxwhile){
+
+            System.out.print("##--Área de Cadastro--##\n\n");
+            System.out.print("|-----------------------------------------|\n");
+            System.out.print("| Opção 1 - Cadastro de Veículos          |\n");
+            System.out.print("| Opção 2 - Cadastro de Motoristas        |\n");
+            System.out.print("| Opção 3 - Cadastro de Cobradores        |\n");
+            System.out.print("| Opção 4 - Cadastro de Passageiros       |\n");
+            System.out.print("| Opção 5 - Cadastro de Pontos de parada  |\n");
+            System.out.print("| Opção 6 - Sair                          |\n");
+            System.out.print("|-----------------------------------------|\n");
+            System.out.print("Digite uma opção: ");
+
+            auxMenuCadastro = entrada.nextInt();
+
+            switch (auxMenuCadastro){
+
+                case 1:
+                    this.menuCadastro();
+                    break;
+
+                case 2:
+                    this.menuPesquisa();
+                    break;
+
+                case 3:
+                    this.menuViagem();
+                    break;
+
+                case 4:
+                    auxwhile = false;
+                    System.out.println("Até a próxima!!");
+                    break;
+
+                default:
+                    System.out.println("Opção incorreta, por favor, tente novamente!");
+            }
+
+        }
 
     }
 
-    public void MenuPesquisa(){
+    public void menuPesquisa(){
 
     }
 
-    public void MenuViagem(){
+    public void menuViagem(){
 
     }
 
@@ -109,15 +155,15 @@ public class EmpresaOnibus {
             switch (auxMenuPrincipal){
 
                 case 1:
-                    this.MenuCadastro();
+                    this.menuCadastro();
                     break;
 
                 case 2:
-                    this.MenuPesquisa();
+                    this.menuPesquisa();
                     break;
 
                 case 3:
-                    this.MenuViagem();
+                    this.menuViagem();
                     break;
 
                 case 4:
