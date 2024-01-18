@@ -1,6 +1,7 @@
 package empresaonibus;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class EmpresaOnibus {
 
@@ -74,8 +75,61 @@ public class EmpresaOnibus {
 
     }
 
-    public static void main(String[] args) {
+    public void MenuCadastro(){
 
+    }
+
+    public void MenuPesquisa(){
+
+    }
+
+    public void MenuViagem(){
+
+    }
+
+    public void main(String[] args) {
+
+        Scanner entrada = new Scanner(System.in);
+        boolean auxwhile = true;
+        int auxMenuPrincipal;
+
+        while (auxwhile){
+
+            System.out.print("##--Empresa Ônibus--##\n\n");
+            System.out.print("|-----------------------------|\n");
+            System.out.print("| Opção 1 - Área de Cadastro  |\n");
+            System.out.print("| Opção 2 - Área de Pesquisa  |\n");
+            System.out.print("| Opção 3 - Simular Viagem    |\n");
+            System.out.print("| Opção 4 - Sair              |\n");
+            System.out.print("|-----------------------------|\n");
+            System.out.print("Digite uma opção: ");
+
+            auxMenuPrincipal = entrada.nextInt();
+
+            switch (auxMenuPrincipal){
+
+                case 1:
+                    this.MenuCadastro();
+                    break;
+
+                case 2:
+                    this.MenuPesquisa();
+                    break;
+
+                case 3:
+                    this.MenuViagem();
+                    break;
+
+                case 4:
+                    auxwhile = false;
+                    System.out.println("Até a próxima!!");
+                    break;
+
+                default:
+                    System.out.println("Opção incorreta, por favor, tente novamente!");
+            }
+
+        }
 
     }
 }
