@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="353f04f0-fcd5-47b6-8920-61cbbd9aa91d" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/aula_25_01_24.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configuracao/Configuracao.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/configuracao/ListaConfiguracao.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/configuracao/Configuracao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/configuracao/Configuracao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/configuracao/ConfiguracaoTeste.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/configuracao/ConfiguracaoTeste.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +36,7 @@
   "keyToString": {
     "Downloaded.Files.Path.Enabled": "false",
     "JUnit.All in aula_25_01_24.executor": "Run",
+    "JUnit.ConfiguracaoTeste.testeAlfabeto.executor": "Run",
     "JUnit.ConfiguracaoTeste.testeMetodo1.executor": "Run",
     "Repository.Attach.Annotations": "false",
     "Repository.Attach.JavaDocs": "false",
@@ -58,11 +53,27 @@
     "project.structure.side.proportion": "0.2"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.ConfiguracaoTeste.testeMetodo1">
+  <component name="RunManager" selected="JUnit.ConfiguracaoTeste.testeAlfabeto">
     <configuration name="All in aula_25_01_24" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="aula_25_01_24" />
       <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfiguracaoTeste.testeAlfabeto" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="aula_25_01_24" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="configuracao.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="configuracao" />
+      <option name="MAIN_CLASS_NAME" value="configuracao.ConfiguracaoTeste" />
+      <option name="METHOD_NAME" value="testeAlfabeto" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -85,6 +96,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ConfiguracaoTeste.testeAlfabeto" />
         <item itemvalue="JUnit.ConfiguracaoTeste.testeMetodo1" />
         <item itemvalue="JUnit.All in aula_25_01_24" />
       </list>
