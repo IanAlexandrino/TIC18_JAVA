@@ -91,4 +91,21 @@ public class UsuarioDAO {
 
     }
 
+    public static void updateUser(String login, String novaSenha){
+
+        Connection con = DAO.conectar();
+
+        String query = "UPDATE Usuario SET Senha=? WHERE Login=?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, novaSenha);
+            ps.setString(2, login);
+            ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

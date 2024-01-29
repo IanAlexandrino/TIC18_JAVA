@@ -12,7 +12,9 @@ public class TestaUsuario {
 
         UsuarioDAO.readAllUsers();
 
-        UsuarioDAO.readByIdUser("josias");
+        UsuarioDAO.updateUser("josias", "123123123");
+
+        UsuarioDAO.readAllUsers();
     }
 
 }
