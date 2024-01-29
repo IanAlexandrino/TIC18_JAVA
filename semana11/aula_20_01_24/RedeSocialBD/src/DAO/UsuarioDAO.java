@@ -65,4 +65,30 @@ public class UsuarioDAO {
 
     }
 
+    public static void readByIdUser(String login){
+
+        Connection con = DAO.conectar();
+
+        String query = "SELECT Login, Senha, Email FROM Usuario WHERE Login = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, login);
+            ResultSet rS = ps.executeQuery();
+            while (rS.next()){
+
+                Usuario usuario = new Usuario();
+                usuario.setLogin(rS.getString("Login"));
+                usuario.setSenha(rS.getString("Senha"));
+                usuario.setEmail(rS.getString("Email"));
+
+                System.out.println("Usuário escolhido: " + usuario.getLogin() + "-" + usuario.getSenha() + "-" + usuario.getEmail());
+
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }
