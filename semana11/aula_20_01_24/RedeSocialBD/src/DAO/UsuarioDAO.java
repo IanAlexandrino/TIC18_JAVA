@@ -108,4 +108,20 @@ public class UsuarioDAO {
 
     }
 
+    public static void deleteUser(String login){
+
+        Connection con = DAO.conectar();
+
+        String query = "DELETE FROM Usuario WHERE Login = ?";
+
+        try {
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, login);
+            ps.execute();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
 }

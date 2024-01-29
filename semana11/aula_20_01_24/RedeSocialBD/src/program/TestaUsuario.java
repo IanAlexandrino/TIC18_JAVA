@@ -12,7 +12,7 @@ public class TestaUsuario {
 
         UsuarioDAO.readAllUsers();
 
-        UsuarioDAO.updateUser("josias", "123123123");
+        UsuarioDAO.deleteUser("josias");
 
         UsuarioDAO.readAllUsers();
     }
