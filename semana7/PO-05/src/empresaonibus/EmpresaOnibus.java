@@ -2,6 +2,7 @@ package empresaonibus;
 
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.StringJoiner;
 
 public class EmpresaOnibus {
 
@@ -336,11 +337,45 @@ public class EmpresaOnibus {
                 case 5:
                     System.out.println("Informe o nome do local que vai ser cadastrado como um ponto de parada: ");
                     String auxPontoParada = entrada.nextLine();
-                    PontosParada pontosParada = new PontosParada(auxPontoParada);
+                    PontosParada pontosParada = new PontosParada();
+                    pontosParada.setLocal(auxPontoParada);
                     setPontosParadas(pontosParada);
                     break;
 
                 case 6 :
+                    if (pontosParadas.isEmpty() || pontosParadas.size() == 1){
+
+                        System.out.println("Para criar um trecho você precisa ter cadastrado no mínimo 2 pontos de parada!!");
+
+                    } else {
+
+                        Trecho trecho = new Trecho();
+
+                        System.out.println("Dentre esses pontos de parada escolha um para ser o de origem: ");
+                        getPontosParadas();
+                        String auxPontoOrigem = entrada.nextLine();
+
+                        System.out.println("Agora dentre esses pontos de parada escolha um para ser o de destino: ");
+                        getPontosParadas();
+                        String auxPontoDestino = entrada.nextLine();
+
+                        for (PontosParada auxPontosParada : pontosParadas){
+
+                            if (auxPontosParada.getLocal() == auxPontoOrigem){
+
+                                trecho.setOrigemTrecho(auxPontosParada);
+
+                            } else if (auxPontosParada.getLocal() == auxPontoDestino){
+
+                                trecho.setDestinoTrecho(auxPontosParada);
+
+                            } else {
+
+                                System.out.println("Nenhum ponto de parada foi identificado, tente novamente!");
+
+                            }
+                        }
+                    }
 
                     break;
 

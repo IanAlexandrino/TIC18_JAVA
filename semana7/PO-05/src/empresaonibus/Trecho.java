@@ -9,6 +9,8 @@ public class Trecho {
 
     public Trecho(){
 
+        origemTrecho = new PontosParada();
+        destinoTrecho = new PontosParada();
         contagemTrecho++;
 
     }
@@ -17,16 +19,16 @@ public class Trecho {
         return contagemTrecho;
     }
 
-    public void setOrigemTrecho(String origemTrecho) {
-        this.origemTrecho = new PontosParada(origemTrecho);
+    public void setOrigemTrecho(PontosParada origemTrecho) {
+        this.origemTrecho = origemTrecho;
     }
 
     public void getOrigemTrecho() {
         System.out.println(origemTrecho.getLocal());
     }
 
-    public void setDestinoTrecho(String destinoTrecho) {
-        this.destinoTrecho = new PontosParada(destinoTrecho);
+    public void setDestinoTrecho(PontosParada destinoTrecho) {
+        this.destinoTrecho = destinoTrecho;
     }
 
     public void getDestinoTrecho() {
