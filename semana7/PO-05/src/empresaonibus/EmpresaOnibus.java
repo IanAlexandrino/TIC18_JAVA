@@ -336,12 +336,88 @@ public class EmpresaOnibus {
                 case 5:
                     System.out.println("Informe o nome do local que vai ser cadastrado como um ponto de parada: ");
                     String auxPontoParada = entrada.nextLine();
-                    PontosParada pontosParada = new PontosParada(auxPontoParada);
+                    PontosParada pontosParada = new PontosParada();
+                    pontosParada.setLocal(auxPontoParada);
                     setPontosParadas(pontosParada);
                     break;
 
                 case 6 :
+                    if (pontosParadas.isEmpty() || pontosParadas.size() == 1){
 
+                        System.out.println("Para criar um trecho você precisa ter cadastrado no mínimo 2 pontos de parada!!");
+
+                    } else {
+
+                        Trecho trecho = new Trecho();
+
+                        System.out.println("Dentre esses pontos de parada escolha um para ser o de origem: ");
+                        getPontosParadas();
+                        String auxPontoOrigem = entrada.nextLine();
+
+                        System.out.println("Agora dentre esses pontos de parada escolha um para ser o de destino: ");
+                        getPontosParadas();
+                        String auxPontoDestino = entrada.nextLine();
+
+                        for (PontosParada auxPontosParada : pontosParadas){
+
+                            if (auxPontosParada.getLocal() == auxPontoOrigem){
+
+                                trecho.setOrigemTrecho(auxPontosParada);
+
+                            } else if (auxPontosParada.getLocal() == auxPontoDestino){
+
+                                trecho.setDestinoTrecho(auxPontosParada);
+
+                            } else {
+
+                                System.out.println("Nenhum ponto de parada foi identificado, tente novamente!");
+
+                            }
+                        }
+                    }
+
+                    break;
+
+                case 7:
+                    if (trechos.isEmpty()){
+
+                        System.out.println("Crie um trecho primeiro para poder fazer o cadastro de trajetos!!");
+
+                    } else {
+
+                        boolean auxLoopTrecho = true;
+                        Trajeto trajeto = new Trajeto();
+                        int auxIdTrecho;
+                        String auxUserLoopTrecho;
+
+                        while (auxLoopTrecho){
+
+                            System.out.println("Escolha o id de um trecho para adicionar no trajeto: ");
+                            getTrechos();
+                            auxIdTrecho = entrada.nextInt();
+
+                            for (Trecho trecho : trechos){
+
+                                if (trecho.getContagemTrecho() == auxIdTrecho){
+
+                                    trajeto.setTrajeto(trecho);
+
+                                }
+
+                            }
+
+                            System.out.println("Deseja adicionar mais trechos ao trajeto(S/N)?");
+                            auxUserLoopTrecho = entrada.nextLine();
+                            if (auxUserLoopTrecho == "N"){
+
+                                auxLoopTrecho = false;
+                                setTrajetos(trajeto);
+
+                            }
+
+                        }
+
+                    }
                     break;
 
                 case 9:
