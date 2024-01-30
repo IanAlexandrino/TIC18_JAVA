@@ -2,12 +2,19 @@ package empresaonibus;
 
 public class Trecho {
 
+    private static int contagemTrecho;
     private PontosParada origemTrecho;
     private PontosParada destinoTrecho;
     private int intervalo;
 
     public Trecho(){
 
+        contagemTrecho++;
+
+    }
+
+    public int getContagemTrecho() {
+        return contagemTrecho;
     }
 
     public void setOrigemTrecho(String origemTrecho) {

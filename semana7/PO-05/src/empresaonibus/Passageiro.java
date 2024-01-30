@@ -8,6 +8,8 @@ public class Passageiro {
 
     public Passageiro(){
 
+        trechoPassageiro = new Trecho();
+
     }
 
     public void setNome(String nome) {
