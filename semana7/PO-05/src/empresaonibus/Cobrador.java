@@ -25,7 +25,7 @@ public class Cobrador {
     public void getTrajetos() {
         for (Trajeto trajeto : trajetos){
 
-            System.out.println(trajeto);
+            trajeto.getTrajeto();
 
         }
     }
