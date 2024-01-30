@@ -233,7 +233,47 @@ public class EmpresaOnibus {
                     break;
 
                 case 3:
-                    this.menuViagem();
+                    if (trajetos.isEmpty()){
+
+                        System.out.println("Crie um trajeto primeiro para poder fazer o cadastro de cobradores!!");
+
+                    } else {
+
+                        Boolean auxLoopTrajeto = true;
+                        System.out.println("Identifique o nome do cobrador que você quer cadastrar: ");
+                        String auxNomeCobrador = entrada.nextLine();
+                        Cobrador cobrador = new Cobrador(auxNomeCobrador);
+
+                        while (auxLoopTrajeto){
+
+                            System.out.println("Escolha o id do trajeto que vc quer designar para o cobrador: ");
+                            getTrajetos();
+
+                            int auxIdTrajeto = entrada.nextInt();
+
+                            for (Trajeto trajeto : trajetos){
+
+                                if (trajeto.getContagemTrajeto() == auxIdTrajeto){
+
+                                    cobrador.setTrajetos(trajeto);
+
+                                }
+
+                            }
+
+                            System.out.println("Quer adicionar mais algum trajeto para o cobrador?(S/N)");
+
+                            String auxLoop = entrada.nextLine();
+
+                            if (auxLoop == "N"){
+
+                                auxLoopTrajeto = false;
+
+                            }
+
+                        }
+
+                    }
                     break;
 
                 case 9:
