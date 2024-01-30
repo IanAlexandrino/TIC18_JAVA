@@ -2,7 +2,6 @@ package empresaonibus;
 
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.util.StringJoiner;
 
 public class EmpresaOnibus {
 
@@ -380,7 +379,45 @@ public class EmpresaOnibus {
                     break;
 
                 case 7:
+                    if (trechos.isEmpty()){
 
+                        System.out.println("Crie um trecho primeiro para poder fazer o cadastro de trajetos!!");
+
+                    } else {
+
+                        boolean auxLoopTrecho = true;
+                        Trajeto trajeto = new Trajeto();
+                        int auxIdTrecho;
+                        String auxUserLoopTrecho;
+
+                        while (auxLoopTrecho){
+
+                            System.out.println("Escolha o id de um trecho para adicionar no trajeto: ");
+                            getTrechos();
+                            auxIdTrecho = entrada.nextInt();
+
+                            for (Trecho trecho : trechos){
+
+                                if (trecho.getContagemTrecho() == auxIdTrecho){
+
+                                    trajeto.setTrajeto(trecho);
+
+                                }
+
+                            }
+
+                            System.out.println("Deseja adicionar mais trechos ao trajeto(S/N)?");
+                            auxUserLoopTrecho = entrada.nextLine();
+                            if (auxUserLoopTrecho == "N"){
+
+                                auxLoopTrecho = false;
+                                setTrajetos(trajeto);
+
+                            }
+
+                        }
+
+                    }
                     break;
 
                 case 9:
