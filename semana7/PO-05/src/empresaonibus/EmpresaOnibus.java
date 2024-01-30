@@ -114,10 +114,6 @@ public class EmpresaOnibus {
 
     }
 
-    public void gerenciaTrajetoVeiculo(){
-
-    }
-
     public void simulaViagem(){
 
     }
@@ -193,7 +189,47 @@ public class EmpresaOnibus {
                     break;
 
                 case 2:
-                    this.menuPesquisa();
+                    if (trajetos.isEmpty()){
+
+                        System.out.println("Crie um trajeto primeiro para poder fazer o cadastro de motoristas!!");
+
+                    } else {
+
+                        Boolean auxLoopTrajeto = true;
+                        System.out.println("Identifique o nome do motorista que você quer cadastrar: ");
+                        String auxNomeMotorista = entrada.nextLine();
+                        Motorista motorista = new Motorista(auxNomeMotorista);
+
+                        while (auxLoopTrajeto){
+
+                            System.out.println("Escolha o id do trajeto que vc quer designar para o motorista: ");
+                            getTrajetos();
+
+                            int auxIdTrajeto = entrada.nextInt();
+
+                            for (Trajeto trajeto : trajetos){
+
+                                if (trajeto.getContagemTrajeto() == auxIdTrajeto){
+
+                                    motorista.setTrajetos(trajeto);
+
+                                }
+
+                            }
+
+                            System.out.println("Quer adicionar mais algum trajeto para o motorista?(S/N)");
+
+                            String auxLoop = entrada.nextLine();
+
+                            if (auxLoop == "N"){
+
+                                auxLoopTrajeto = false;
+
+                            }
+
+                        }
+
+                    }
                     break;
 
                 case 3:
