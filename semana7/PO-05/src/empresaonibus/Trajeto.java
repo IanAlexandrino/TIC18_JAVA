@@ -4,14 +4,21 @@ import java.util.ArrayList;
 
 public class Trajeto {
 
+    private static int contagemTrajeto;
     private ArrayList<Trecho> trajeto;
     private String trajetoAtual;
     private Checkpoint checkpoint;
 
     public Trajeto(){
 
+        contagemTrajeto++;
         trajeto = new ArrayList<>();
 
+    }
+
+    public int getContagemTrajeto() {
+
+        return contagemTrajeto;
     }
 
     public void setTrajeto(Trecho trecho) {

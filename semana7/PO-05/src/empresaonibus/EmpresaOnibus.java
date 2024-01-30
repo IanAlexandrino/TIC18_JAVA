@@ -10,6 +10,11 @@ public class EmpresaOnibus {
     private ArrayList<Cobrador> cobradores;
     private ArrayList<Passageiro> passageiros;
     private ArrayList<PontosParada> pontosParadas;
+    private ArrayList<Trecho> trechos;
+    private ArrayList<Trajeto> trajetos;
+    private ArrayList<Jornada> jornadas;
+
+
 
     public EmpresaOnibus(){
 
@@ -18,6 +23,9 @@ public class EmpresaOnibus {
         cobradores = new ArrayList<>();
         passageiros = new ArrayList<>();
         pontosParadas = new ArrayList<>();
+        trechos = new ArrayList<>();
+        trajetos = new ArrayList<>();
+        jornadas = new ArrayList<>();
 
     }
 
@@ -88,6 +96,24 @@ public class EmpresaOnibus {
         }
     }
 
+    public void setTrajetos(Trajeto trajeto){
+
+        this.trajetos.add(trajeto);
+
+    }
+
+    public void getTrajetos(){
+
+        System.out.println("Trajetos: \n");
+        for (Trajeto trajeto : trajetos){
+            System.out.println("Id do trajeto: " + trajeto.getContagemTrajeto());
+            trajeto.getTrajeto();
+
+            System.out.println("\n-----------------------------\n");
+        }
+
+    }
+
     public void gerenciaTrajetoVeiculo(){
 
     }
@@ -96,7 +122,7 @@ public class EmpresaOnibus {
 
     }
 
-    public static void menuCadastro(){
+    public void menuCadastro(){
 
         Scanner entrada = new Scanner(System.in);
         boolean auxwhile = true;
@@ -111,7 +137,10 @@ public class EmpresaOnibus {
             System.out.print("| Opção 3 - Cadastro de Cobradores        |\n");
             System.out.print("| Opção 4 - Cadastro de Passageiros       |\n");
             System.out.print("| Opção 5 - Cadastro de Pontos de parada  |\n");
-            System.out.print("| Opção 6 - Voltar                        |\n");
+            System.out.print("| Opção 6 - Cadastro de Trechos           |\n");
+            System.out.print("| Opção 7 - Cadastro de Trajetos          |\n");
+            System.out.print("| Opção 8 - Cadastro de Jornadas          |\n");
+            System.out.print("| Opção 9 - Voltar                        |\n");
             System.out.print("|-----------------------------------------|\n");
             System.out.print("Digite uma opção: ");
 
@@ -120,7 +149,47 @@ public class EmpresaOnibus {
             switch (auxMenuCadastro){
 
                 case 1:
-                    this.menuCadastro();
+                    if (trajetos.isEmpty()){
+
+                        System.out.println("Crie um trajeto primeiro para poder fazer o cadastro de veículos!!");
+
+                    } else {
+
+                        Boolean auxLoopTrajeto = true;
+                        System.out.println("Identifique o modelo do veículo que você quer cadastrar: ");
+                        String auxModeloVeiculo = entrada.nextLine();
+                        Veiculo veiculo = new Veiculo(auxModeloVeiculo);
+
+                        while (auxLoopTrajeto){
+
+                            System.out.println("Escolha o id do trajeto que vc quer designar para o veículo: ");
+                            getTrajetos();
+
+                            int auxIdTrajeto = entrada.nextInt();
+
+                            for (Trajeto trajeto : trajetos){
+
+                                if (trajeto.getContagemTrajeto() == auxIdTrajeto){
+
+                                    veiculo.setTrajetos(trajeto);
+
+                                }
+
+                            }
+
+                            System.out.println("Quer adicionar mais algum trajeto para o veículo?(S/N)");
+
+                            String auxLoop = entrada.nextLine();
+
+                            if (auxLoop == "N"){
+
+                                auxLoopTrajeto = false;
+
+                            }
+
+                        }
+
+                    }
                     break;
 
                 case 2:
@@ -131,9 +200,8 @@ public class EmpresaOnibus {
                     this.menuViagem();
                     break;
 
-                case 4:
+                case 9:
                     auxwhile = false;
-                    System.out.println("Até a próxima!!");
                     break;
 
                 default:
@@ -144,57 +212,12 @@ public class EmpresaOnibus {
 
     }
 
-    public static void menuPesquisa(){
+    public void menuPesquisa(){
 
     }
 
-    public static void menuViagem(){
+    public void menuViagem(){
 
     }
 
-    public static void main(String[] args) {
-
-        Scanner entrada = new Scanner(System.in);
-        boolean auxwhile = true;
-        int auxMenuPrincipal;
-
-        while (auxwhile){
-
-            System.out.print("##--Empresa Ônibus--##\n\n");
-            System.out.print("|-----------------------------|\n");
-            System.out.print("| Opção 1 - Área de Cadastro  |\n");
-            System.out.print("| Opção 2 - Área de Pesquisa  |\n");
-            System.out.print("| Opção 3 - Simular Viagem    |\n");
-            System.out.print("| Opção 4 - Sair              |\n");
-            System.out.print("|-----------------------------|\n");
-            System.out.print("Digite uma opção: ");
-
-            auxMenuPrincipal = entrada.nextInt();
-
-            switch (auxMenuPrincipal){
-
-                case 1:
-                    menuCadastro();
-                    break;
-
-                case 2:
-                    menuPesquisa();
-                    break;
-
-                case 3:
-                    menuViagem();
-                    break;
-
-                case 4:
-                    auxwhile = false;
-                    System.out.println("Até a próxima!!");
-                    break;
-
-                default:
-                    System.out.println("Opção incorreta, por favor, tente novamente!");
-            }
-
-        }
-
-    }
 }
