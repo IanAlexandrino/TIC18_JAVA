@@ -420,6 +420,108 @@ public class EmpresaOnibus {
                     }
                     break;
 
+                case 8:
+                    if (motoristas.isEmpty()){
+
+                        System.out.println("Cadastre primeiro um motorista para continuar com o cadastro de uma Jornada!!");
+
+                    } else if (veiculos.isEmpty()) {
+
+                        System.out.println("Cadastre primeiro um Veículo para continuar com o cadastro de uma Jornada!!");
+
+                    } else if (cobradores.isEmpty()) {
+
+                        System.out.println("Cadastre primeiro um cobrador para continuar com o cadastro de uma Jornada!!");
+
+                    } else if (trajetos.isEmpty()) {
+
+                        System.out.println("Cadastre primeiro um trajeto para continuar com o cadastro de uma Jornada!!");
+
+                    } else {
+
+                        boolean auxLoopTrajetoJornada = true;
+                        Jornada jornada = new Jornada();
+                        String auxMotorista, auxLoopTrajeto, auxVeiculo, auxCobrador;
+                        int auxIntervaloTempo;
+
+                        int auxTrajeto;
+
+                        System.out.println("Informe o nome do motorista que você quer cadastrar para a jornada:");
+                        getMotoristas();
+                        auxMotorista = entrada.nextLine();
+
+                        for (Motorista motorista : motoristas){
+
+                            if (motorista.getNome() == auxMotorista){
+
+                                jornada.setMotorista(motorista);
+
+                            }
+
+                        }
+
+                        System.out.println("Informe o modelo do veículo que você quer cadastrar para a jornada:");
+                        getVeiculos();
+                        auxVeiculo = entrada.nextLine();
+
+                        for (Veiculo veiculo : veiculos){
+
+                            if (veiculo.getModelo() == auxVeiculo){
+
+                                jornada.setVeiculo(veiculo);
+
+                            }
+
+                        }
+
+                        System.out.println("Informe o nome do cobrador que você quer cadastrar para a jornada:");
+                        getCobradores();
+                        auxCobrador = entrada.nextLine();
+
+                        for (Cobrador cobrador : cobradores){
+
+                            if (cobrador.getNome() == auxCobrador){
+
+                                jornada.setCobrador(cobrador);
+
+                            }
+
+                        }
+
+                        while (auxLoopTrajetoJornada){
+
+                            System.out.println("Informe o id do trajeto que você quer cadastrar para a jornada");
+                            getTrajetos();
+                            auxTrajeto = entrada.nextInt();
+
+                            for (Trajeto trajeto : trajetos){
+
+                                if (trajeto.getContagemTrajeto() == auxTrajeto){
+
+                                    jornada.setTrajetos(trajeto);
+
+                                }
+
+                            }
+
+                            System.out.println("Você deseja adicionar mais algum trajeto(S/N)?");
+                            auxLoopTrajeto = entrada.nextLine();
+                            if (auxLoopTrajeto == "N"){
+
+                                auxLoopTrajetoJornada = false;
+
+                            }
+
+                        }
+
+                        System.out.println("Informe o intervalo de tempo da Jornada:");
+                        auxIntervaloTempo = entrada.nextInt();
+                        jornada.setIntervaloTempo(auxIntervaloTempo);
+
+                        jornadas.add(jornada);
+                    }
+                    break;
+
                 case 9:
                     auxwhile = false;
                     break;
