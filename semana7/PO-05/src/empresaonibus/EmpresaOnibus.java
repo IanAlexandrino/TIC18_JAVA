@@ -379,6 +379,10 @@ public class EmpresaOnibus {
 
                     break;
 
+                case 7:
+
+                    break;
+
                 case 9:
                     auxwhile = false;
                     break;
