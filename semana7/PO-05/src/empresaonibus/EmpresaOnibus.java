@@ -114,6 +114,26 @@ public class EmpresaOnibus {
 
     }
 
+    public void setTrechos(Trecho trecho) {
+        this.trechos.add(trecho);
+    }
+
+    public void getTrechos(){
+
+        System.out.println("Trechos: ");
+        for (Trecho trecho : trechos){
+
+            System.out.println("Id do trecho: " + trecho.getContagemTrecho());
+            System.out.println("Origem: ");
+            trecho.getOrigemTrecho();
+            System.out.println("Destino: ");
+            trecho.getDestinoTrecho();
+
+            System.out.println("\n-----------------------------\n");
+        }
+
+    }
+
     public void simulaViagem(){
 
     }
@@ -151,7 +171,7 @@ public class EmpresaOnibus {
 
                     } else {
 
-                        Boolean auxLoopTrajeto = true;
+                        boolean auxLoopTrajeto = true;
                         System.out.println("Identifique o modelo do veículo que você quer cadastrar: ");
                         String auxModeloVeiculo = entrada.nextLine();
                         Veiculo veiculo = new Veiculo(auxModeloVeiculo);
@@ -180,6 +200,7 @@ public class EmpresaOnibus {
                             if (auxLoop == "N"){
 
                                 auxLoopTrajeto = false;
+                                setVeiculos(veiculo);
 
                             }
 
@@ -195,7 +216,7 @@ public class EmpresaOnibus {
 
                     } else {
 
-                        Boolean auxLoopTrajeto = true;
+                        boolean auxLoopTrajeto = true;
                         System.out.println("Identifique o nome do motorista que você quer cadastrar: ");
                         String auxNomeMotorista = entrada.nextLine();
                         Motorista motorista = new Motorista(auxNomeMotorista);
@@ -224,6 +245,7 @@ public class EmpresaOnibus {
                             if (auxLoop == "N"){
 
                                 auxLoopTrajeto = false;
+                                setMotoristas(motorista);
 
                             }
 
@@ -233,7 +255,93 @@ public class EmpresaOnibus {
                     break;
 
                 case 3:
-                    this.menuViagem();
+                    if (trajetos.isEmpty()){
+
+                        System.out.println("Crie um trajeto primeiro para poder fazer o cadastro de cobradores!!");
+
+                    } else {
+
+                        boolean auxLoopTrajeto = true;
+                        System.out.println("Identifique o nome do cobrador que você quer cadastrar: ");
+                        String auxNomeCobrador = entrada.nextLine();
+                        Cobrador cobrador = new Cobrador(auxNomeCobrador);
+
+                        while (auxLoopTrajeto){
+
+                            System.out.println("Escolha o id do trajeto que vc quer designar para o cobrador: ");
+                            getTrajetos();
+
+                            int auxIdTrajeto = entrada.nextInt();
+
+                            for (Trajeto trajeto : trajetos){
+
+                                if (trajeto.getContagemTrajeto() == auxIdTrajeto){
+
+                                    cobrador.setTrajetos(trajeto);
+
+                                }
+
+                            }
+
+                            System.out.println("Quer adicionar mais algum trajeto para o cobrador?(S/N)");
+
+                            String auxLoop = entrada.nextLine();
+
+                            if (auxLoop == "N"){
+
+                                auxLoopTrajeto = false;
+                                setCobradores(cobrador);
+
+                            }
+
+                        }
+
+                    }
+                    break;
+
+                case 4:
+                    if (trechos.isEmpty()){
+
+                        System.out.println("Crie um trecho primeiro para poder fazer o cadastro de passageiros!!");
+
+                    } else {
+
+                        System.out.println("Identifique o nome do passageiro que você quer cadastrar: ");
+                        String auxNomePassageiro = entrada.nextLine();
+                        Passageiro passageiro = new Passageiro();
+                        passageiro.setNome(auxNomePassageiro);
+
+
+
+                        System.out.println("Escolha o id do trecho que vc quer designar para o passageiro: ");
+                        getTrechos();
+
+                        int auxIdTrecho = entrada.nextInt();
+
+                        for (Trecho trecho : trechos){
+
+                            if (trecho.getContagemTrecho() == auxIdTrecho){
+
+                                passageiro.setTrechoPassageiro(trecho);
+
+                            }
+
+                        }
+
+                        setPassageiros(passageiro);
+
+                    }
+                    break;
+
+                case 5:
+                    System.out.println("Informe o nome do local que vai ser cadastrado como um ponto de parada: ");
+                    String auxPontoParada = entrada.nextLine();
+                    PontosParada pontosParada = new PontosParada(auxPontoParada);
+                    setPontosParadas(pontosParada);
+                    break;
+
+                case 6 :
+
                     break;
 
                 case 9:
