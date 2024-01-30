@@ -333,6 +333,17 @@ public class EmpresaOnibus {
                     }
                     break;
 
+                case 5:
+                    System.out.println("Informe o nome do local que vai ser cadastrado como um ponto de parada: ");
+                    String auxPontoParada = entrada.nextLine();
+                    PontosParada pontosParada = new PontosParada(auxPontoParada);
+                    setPontosParadas(pontosParada);
+                    break;
+
+                case 6 :
+
+                    break;
+
                 case 9:
                     auxwhile = false;
                     break;

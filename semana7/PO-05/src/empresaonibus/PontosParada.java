@@ -10,10 +10,6 @@ public class PontosParada {
 
     }
 
-    public void setLocal(String local) {
-        this.local = local;
-    }
-
     public String getLocal() {
         return local;
     }
