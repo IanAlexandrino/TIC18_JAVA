@@ -42,4 +42,10 @@ public class Trecho {
     public int getIntervalo() {
         return intervalo;
     }
+
+    public boolean verificaOrigemDestino(){
+
+        return origemTrecho != null && destinoTrecho != null;
+
+    }
 }

@@ -134,6 +134,27 @@ public class EmpresaOnibus {
 
     }
 
+    public void setJornadas(Jornada jornada){
+
+        jornadas.add(jornada);
+
+    }
+
+    public void getJornadas() {
+        int contador = 0;
+
+        for (Jornada jornada : jornadas){
+            contador++;
+            System.out.println(contador + "ª Jornada:");
+            jornada.getMotorista();
+            jornada.getVeiculo();
+            jornada.getCobrador();
+            jornada.getTrajetos();
+            System.out.println(jornada.getIntervaloTempo());
+
+        }
+    }
+
     public void simulaViagem(){
 
     }
@@ -349,31 +370,45 @@ public class EmpresaOnibus {
                     } else {
 
                         Trecho trecho = new Trecho();
+                        boolean auxTrecho = true;
 
-                        System.out.println("Dentre esses pontos de parada escolha um para ser o de origem: ");
-                        getPontosParadas();
-                        String auxPontoOrigem = entrada.nextLine();
+                        while (auxTrecho){
 
-                        System.out.println("Agora dentre esses pontos de parada escolha um para ser o de destino: ");
-                        getPontosParadas();
-                        String auxPontoDestino = entrada.nextLine();
+                            System.out.println("Dentre esses pontos de parada escolha um para ser o de origem: ");
+                            getPontosParadas();
+                            String auxPontoOrigem = entrada.nextLine();
 
-                        for (PontosParada auxPontosParada : pontosParadas){
+                            System.out.println("Agora dentre esses pontos de parada escolha um para ser o de destino: ");
+                            getPontosParadas();
+                            String auxPontoDestino = entrada.nextLine();
 
-                            if (auxPontosParada.getLocal() == auxPontoOrigem){
+                            for (PontosParada auxPontosParada : pontosParadas){
 
-                                trecho.setOrigemTrecho(auxPontosParada);
+                                if (auxPontosParada.getLocal() == auxPontoOrigem){
 
-                            } else if (auxPontosParada.getLocal() == auxPontoDestino){
+                                    trecho.setOrigemTrecho(auxPontosParada);
 
-                                trecho.setDestinoTrecho(auxPontosParada);
+                                } else if (auxPontosParada.getLocal() == auxPontoDestino){
+
+                                    trecho.setDestinoTrecho(auxPontosParada);
+
+                                }
+
+                            }
+
+                            if (!trecho.verificaOrigemDestino()){
+
+                                System.out.println("Um dos pontos de origem ou destino não está cadastrado, por favor, cadastre um ponto válido!!");
 
                             } else {
 
-                                System.out.println("Nenhum ponto de parada foi identificado, tente novamente!");
+                                auxTrecho = false;
+                                setTrechos(trecho);
 
                             }
+
                         }
+
                     }
 
                     break;
@@ -518,7 +553,7 @@ public class EmpresaOnibus {
                         auxIntervaloTempo = entrada.nextInt();
                         jornada.setIntervaloTempo(auxIntervaloTempo);
 
-                        jornadas.add(jornada);
+                        setJornadas(jornada);
                     }
                     break;
 
@@ -536,6 +571,73 @@ public class EmpresaOnibus {
 
     public void menuPesquisa(){
 
+        Scanner entrada = new Scanner(System.in);
+        boolean auxWhile = true;
+        int auxMenuPesquisa;
+
+        while (auxWhile) {
+
+            System.out.print("##--Área de Pesquisa--##\n\n");
+            System.out.print("|-----------------------------------------|\n");
+            System.out.print("| Opção 1 - Veículos cadastrados          |\n");
+            System.out.print("| Opção 2 - Motoristas cadastrados        |\n");
+            System.out.print("| Opção 3 - Cobradores cadastrados        |\n");
+            System.out.print("| Opção 4 - Passageiros cadastrados       |\n");
+            System.out.print("| Opção 5 - Pontos de parada cadastrados  |\n");
+            System.out.print("| Opção 6 - Trechos cadastrados           |\n");
+            System.out.print("| Opção 7 - Trajetos cadastrados          |\n");
+            System.out.print("| Opção 8 - Jornadas cadastradas          |\n");
+            System.out.print("| Opção 9 - Voltar                        |\n");
+            System.out.print("|-----------------------------------------|\n");
+            System.out.print("Digite uma opção: ");
+
+            auxMenuPesquisa = entrada.nextInt();
+
+            switch (auxMenuPesquisa){
+
+                case 1:
+                    getVeiculos();
+                    break;
+
+                case 2:
+                    getMotoristas();
+                    break;
+
+                case 3:
+                    getCobradores();
+                    break;
+
+                case 4:
+                    getPassageiros();
+                    break;
+
+                case 5:
+                    getPontosParadas();
+                    break;
+
+                case 6:
+                    getTrechos();
+                    break;
+
+                case 7:
+                    getTrajetos();
+                    break;
+
+                case 8:
+                    getJornadas();
+                    break;
+
+                case 9:
+                    auxWhile = false;
+                    break;
+
+                default:
+
+                    System.out.println("Opção incorreta, por favor, tente novamente!");
+
+            }
+
+        }
     }
 
     public void menuViagem(){
