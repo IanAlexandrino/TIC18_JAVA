@@ -54,7 +54,7 @@ public class EmpresaOnibus {
         for (Cobrador cobrador : cobradores){
 
             System.out.println("Cobrador: " + cobrador.getNome());
-            cobrador.
+            cobrador.getTrajetos();
 
         }
     }
