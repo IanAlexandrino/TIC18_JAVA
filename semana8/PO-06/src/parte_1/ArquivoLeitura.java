@@ -25,16 +25,7 @@ public class ArquivoLeitura {
 
         }
 
-        try {
-
-            fr = new FileReader(arquivo);
-
-        } catch (FileNotFoundException e) {
-
-            throw new RuntimeException(e);
-
-        }
-
+        fr = new FileReader(arquivo);
         br = new BufferedReader(fr);
 
         while (br.ready()){
@@ -43,6 +34,9 @@ public class ArquivoLeitura {
             System.out.println(linha);
 
         }
+
+        br.close();
+        fr.close();
 
     }
 

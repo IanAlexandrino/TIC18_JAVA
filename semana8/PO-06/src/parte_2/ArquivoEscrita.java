@@ -28,11 +28,10 @@ public class ArquivoEscrita {
             arquivo.createNewFile();
             arquivo.mkdir();
 
-        } else {
-
-            System.out.println("Arquivo já existe!!");
-
         }
+
+        fw = new FileWriter(arquivo);
+        bw = new BufferedWriter(fw);
 
     }
 
