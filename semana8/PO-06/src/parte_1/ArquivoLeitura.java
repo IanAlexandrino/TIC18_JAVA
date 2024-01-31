@@ -16,24 +16,31 @@ public class ArquivoLeitura {
 
     }
 
-    public void lerArquivo(){
+    public void lerArquivo() throws IOException {
 
         if (!existe){
-
-            try {
 
                 arquivo.createNewFile();
                 arquivo.mkdir();
 
-            } catch (IOException e) {
+        }
 
-                throw new RuntimeException(e);
+        try {
 
-            }
+            fr = new FileReader(arquivo);
 
-        } else {
+        } catch (FileNotFoundException e) {
 
-            System.out.println("Arquivo já existe!");
+            throw new RuntimeException(e);
+
+        }
+
+        br = new BufferedReader(fr);
+
+        while (br.ready()){
+
+            String linha = br.readLine();
+            System.out.println(linha);
 
         }
 
