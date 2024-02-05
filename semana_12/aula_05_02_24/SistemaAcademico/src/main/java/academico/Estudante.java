@@ -1,8 +1,16 @@
 package academico;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Estudante {
 
-    private int Id;
+    @Id
+    @GeneratedValue (strategy = GenerationType.AUTO)
+    private Integer Id;
     private String Nome;
     private String Email;
     private String Matricula;
@@ -11,7 +19,7 @@ public class Estudante {
 
     }
 
-    public Estudante(int Id, String Nome, String Email, String Matricula){
+    public Estudante(Integer Id, String Nome, String Email, String Matricula){
 
         this.Id = Id;
         this.Nome = Nome;
