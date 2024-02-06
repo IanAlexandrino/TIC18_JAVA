@@ -18,9 +18,10 @@ public class Estudante {
 
     }
 
-    public Estudante(Integer Id, String Nome, String Email, String Matricula){
+    public Estudante(Integer Id, Curso Curso, String Nome, String Email, String Matricula){
 
         this.Id = Id;
+        this.Curso = Curso;
         this.Nome = Nome;
         this.Email = Email;
         this.Matricula = Matricula;
