@@ -2,6 +2,7 @@ package dao;
 
 import academico.Curso;
 import academico.Estudante;
+import dto.EstudanteDTO;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -66,6 +67,21 @@ public class TesteDAO {
 
     }
 
+    public static void gerarEstudanteDTO(EntityManager em){
+
+        String jpql = "select new dto.EstudanteDTO(e.Nome, "
+                + "e.Email, e.Matricula, e.Curso.Nome) from Estudante e";
+        TypedQuery<EstudanteDTO> typedQuery =
+                em.createQuery(jpql, EstudanteDTO.class);
+        List<EstudanteDTO> lista = typedQuery.getResultList();
+        for (EstudanteDTO e : lista){
+
+            System.out.println(e.getNome());
+
+        }
+
+    }
+
     public static void main(String[] args) {
 
         EntityManagerFactory emf =
@@ -76,7 +92,9 @@ public class TesteDAO {
 
 //        TesteDAO.listarTodosEstudantes(em);
 
-        TesteDAO.alterarEstudante(em);
+//        TesteDAO.alterarEstudante(em);
+
+        TesteDAO.gerarEstudanteDTO(em);
 
         em.close();
         emf.close();
