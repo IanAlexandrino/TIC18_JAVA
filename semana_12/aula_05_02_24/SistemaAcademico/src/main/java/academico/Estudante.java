@@ -1,16 +1,15 @@
 package academico;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Estudante {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.AUTO)
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer Id;
+    @ManyToOne
+    private Curso Curso;
     private String Nome;
     private String Email;
     private String Matricula;
@@ -34,6 +33,14 @@ public class Estudante {
 
     public int getId() {
         return Id;
+    }
+
+    public void setCurso(academico.Curso curso) {
+        Curso = curso;
+    }
+
+    public academico.Curso getCurso() {
+        return Curso;
     }
 
     public void setNome(String nome) {
