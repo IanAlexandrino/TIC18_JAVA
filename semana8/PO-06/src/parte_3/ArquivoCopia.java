@@ -50,7 +50,21 @@ public class ArquivoCopia {
 
         }
 
-        System.out.println(data);
+        br.close();
+        fr.close();
+
+        fw = new FileWriter(arquivoDestino);
+        bw = new BufferedWriter(fw);
+
+        for (String linha : data){
+
+            bw.write(linha);
+            bw.newLine();
+
+        }
+
+        bw.close();
+        fw.close();
 
     }
 }
