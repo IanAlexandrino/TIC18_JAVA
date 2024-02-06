@@ -82,6 +82,26 @@ public class TesteDAO {
 
     }
 
+    public static void mostrarEstudantesPorCurso(EntityManager em){
+
+        String jpql = "select c from Curso c where c.Id = 1";
+        TypedQuery<Curso> typedQuery =
+                em.createQuery(jpql, Curso.class);
+        Curso c = typedQuery.getSingleResult();
+        String jpqlEstudante = "select e from Estudante "
+                + "e where e.Curso = :curso";
+        TypedQuery<Estudante> typedQueryEstudante =
+                em.createQuery(jpqlEstudante, Estudante.class);
+        typedQueryEstudante.setParameter("curso", c);
+        List<Estudante> lista = typedQueryEstudante.getResultList();
+        for (Estudante e : lista){
+
+            System.out.println(e.getNome());
+
+        }
+
+    }
+
     public static void main(String[] args) {
 
         EntityManagerFactory emf =
@@ -94,7 +114,9 @@ public class TesteDAO {
 
 //        TesteDAO.alterarEstudante(em);
 
-        TesteDAO.gerarEstudanteDTO(em);
+//        TesteDAO.gerarEstudanteDTO(em);
+
+        TesteDAO.mostrarEstudantesPorCurso(em);
 
         em.close();
         emf.close();
