@@ -52,6 +52,20 @@ public class TesteDAO {
 
     }
 
+    public static void alterarEstudante(EntityManager em){
+
+        String jpql = "select e from Estudante e where Id=1";
+        TypedQuery<Estudante> typedQuery =
+                em.createQuery(jpql, Estudante.class);
+        Estudante e = typedQuery.getSingleResult();
+        System.out.println(e.getNome());
+        em.getTransaction().begin();
+        e.setEmail("totonho@tutu");
+        em.persist(e);
+        em.getTransaction().commit();
+
+    }
+
     public static void main(String[] args) {
 
         EntityManagerFactory emf =
@@ -60,7 +74,9 @@ public class TesteDAO {
         EntityManager em = emf.createEntityManager();
         TesteDAO.preparaBD(em);
 
-        TesteDAO.listarTodosEstudantes(em);
+//        TesteDAO.listarTodosEstudantes(em);
+
+        TesteDAO.alterarEstudante(em);
 
         em.close();
         emf.close();
