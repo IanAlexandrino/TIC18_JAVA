@@ -43,6 +43,11 @@ public class TesteDAO {
 
         EntityManager em = emf.createEntityManager();
         TesteDAO.preparaBD(em);
+
+
+        em.close();
+        emf.close();
+
         System.out.println("BD Recriado");
 
     }
