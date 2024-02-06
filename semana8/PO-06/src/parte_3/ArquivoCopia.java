@@ -1,6 +1,7 @@
 package parte_3;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class ArquivoCopia {
 
@@ -37,6 +38,19 @@ public class ArquivoCopia {
             arquivoDestino.mkdir();
 
         }
+
+        ArrayList<String> data = new ArrayList<>();
+        fr = new FileReader(arquivoOrigem);
+        br = new BufferedReader(fr);
+
+        while (br.ready()){
+
+            String linha = br.readLine();
+            data.add(linha);
+
+        }
+
+        System.out.println(data);
 
     }
 }
