@@ -85,6 +85,7 @@ public class EmpresaOnibus {
 
     public void setPontosParadas(PontosParada pontosParada) {
         this.pontosParadas.add(pontosParada);
+        PontosParadaCSV.insereDadosArquivo(pontosParada);
     }
 
     public void getPontosParadas() {
@@ -355,8 +356,9 @@ public class EmpresaOnibus {
                     break;
 
                 case 5:
+                    Scanner entradaPontosParada = new Scanner(System.in);
                     System.out.println("Informe o nome do local que vai ser cadastrado como um ponto de parada: ");
-                    String auxPontoParada = entrada.nextLine();
+                    String auxPontoParada = entradaPontosParada.nextLine();
                     PontosParada pontosParada = new PontosParada();
                     pontosParada.setLocal(auxPontoParada);
                     setPontosParadas(pontosParada);
