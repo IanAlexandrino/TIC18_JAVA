@@ -1,9 +1,6 @@
 package parte_4;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 
 public class PontosParadaCSV {
@@ -24,6 +21,28 @@ public class PontosParadaCSV {
             }
 
             bw.write(pontosParada.getLocal() + "\n");
+
+        } catch (IOException e){
+
+            System.out.println("Erro: " + e.getMessage());
+
+        }
+
+    }
+
+    public static void carregaDadosArquivo(){
+
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))){
+
+            br.readLine();
+            while (br.ready()){
+
+                String local = br.readLine();
+                PontosParada pontosParada = new PontosParada();
+                pontosParada.setLocal(local);
+
+
+            }
 
         } catch (IOException e){
 
