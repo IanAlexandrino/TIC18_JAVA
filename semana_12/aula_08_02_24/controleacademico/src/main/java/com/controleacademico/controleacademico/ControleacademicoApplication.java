@@ -1,13 +1,13 @@
-package com.redesocial.redesocial;
+package com.controleacademico.controleacademico;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class RedesocialApplication {
+public class ControleacademicoApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(RedesocialApplication.class, args);
+		SpringApplication.run(ControleacademicoApplication.class, args);
 	}
 
 }
