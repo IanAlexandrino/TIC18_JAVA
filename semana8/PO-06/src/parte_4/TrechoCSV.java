@@ -47,9 +47,13 @@ public class TrechoCSV {
                 PontosParada pontosParadaOrigem = new PontosParada();
                 PontosParada pontosParadaDestino = new PontosParada();
                 pontosParadaOrigem.setLocal(vect[0]);
-                pontosParadaOrigem.setLocal(vect[1]);
+                System.out.println(vect[0]);
+                pontosParadaDestino.setLocal(vect[1]);
+                System.out.println(vect[1]);
                 trecho.setOrigemTrecho(pontosParadaOrigem);
                 trecho.setDestinoTrecho(pontosParadaDestino);
+                System.out.println(trecho.getOrigemTrecho());
+                System.out.println(trecho.getDestinoTrecho());
                 trechos.add(trecho);
 
             }
