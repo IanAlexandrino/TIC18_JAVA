@@ -1,8 +1,10 @@
 package parte_4;
 
+import java.util.Random;
+
 public class Trecho {
 
-    private static int contagemTrecho;
+    private final int contagemTrecho;
     private PontosParada origemTrecho;
     private PontosParada destinoTrecho;
     private int intervalo;
@@ -11,7 +13,8 @@ public class Trecho {
 
         origemTrecho = new PontosParada();
         destinoTrecho = new PontosParada();
-        contagemTrecho++;
+        Random random = new Random();
+        contagemTrecho = random.nextInt(200);
 
     }
 

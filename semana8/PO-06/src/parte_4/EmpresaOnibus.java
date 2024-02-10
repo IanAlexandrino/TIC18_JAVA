@@ -1,6 +1,7 @@
 package parte_4;
 
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class EmpresaOnibus {
@@ -126,10 +127,8 @@ public class EmpresaOnibus {
         for (Trecho trecho : trechos){
 
             System.out.println("Id do trecho: " + trecho.getContagemTrecho());
-            System.out.println("Origem: ");
-            trecho.getOrigemTrecho();
-            System.out.println("Destino: ");
-            trecho.getDestinoTrecho();
+            System.out.println("Origem: " + trecho.getOrigemTrecho());
+            System.out.println("Destino: " + trecho.getDestinoTrecho());
 
             System.out.println("\n-----------------------------\n");
         }
@@ -160,6 +159,7 @@ public class EmpresaOnibus {
     public void carregaDados(){
 
         pontosParadas.addAll(PontosParadaCSV.carregaDadosArquivo());
+        trechos.addAll(TrechoCSV.carregaDadosArquivo());
 
     }
 
@@ -383,21 +383,23 @@ public class EmpresaOnibus {
 
                         while (auxTrecho){
 
+                            Scanner entradaPontoOrigemTrecho = new Scanner(System.in);
                             System.out.println("Dentre esses pontos de parada escolha um para ser o de origem: ");
                             getPontosParadas();
-                            String auxPontoOrigem = entrada.nextLine();
+                            String auxPontoOrigem = entradaPontoOrigemTrecho.nextLine();
 
+                            Scanner entradaPontoDestinoTrecho = new Scanner(System.in);
                             System.out.println("Agora dentre esses pontos de parada escolha um para ser o de destino: ");
                             getPontosParadas();
-                            String auxPontoDestino = entrada.nextLine();
+                            String auxPontoDestino = entradaPontoDestinoTrecho.nextLine();
 
                             for (PontosParada auxPontosParada : pontosParadas){
 
-                                if (auxPontosParada.getLocal() == auxPontoOrigem){
+                                if (Objects.equals(auxPontosParada.getLocal(), auxPontoOrigem)){
 
                                     trecho.setOrigemTrecho(auxPontosParada);
 
-                                } else if (auxPontosParada.getLocal() == auxPontoDestino){
+                                } else if (Objects.equals(auxPontosParada.getLocal(), auxPontoDestino)){
 
                                     trecho.setDestinoTrecho(auxPontosParada);
 

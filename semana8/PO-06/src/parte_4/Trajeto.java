@@ -1,17 +1,19 @@
 package parte_4;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class Trajeto {
 
-    private static int contagemTrajeto;
+    private final int contagemTrajeto;
     private ArrayList<Trecho> trajeto;
     private String trajetoAtual;
     private Checkpoint checkpoint;
 
     public Trajeto(){
 
-        contagemTrajeto++;
+        Random random = new Random();
+        contagemTrajeto = random.nextInt(200);
         trajeto = new ArrayList<>();
 
     }
@@ -25,18 +27,8 @@ public class Trajeto {
         trajeto.add(trecho);
     }
 
-    public void getTrajeto() {
-        int i = 0;
-        for (Trecho trecho : trajeto){
-            i++;
-            System.out.println(i + "° Trecho: ");
+    public ArrayList<Trecho> getTrajeto() {
 
-            System.out.println("Origem: ");
-            trecho.getOrigemTrecho();
-
-            System.out.println("Destino: ");
-            trecho.getDestinoTrecho();
-
-        }
+        return trajeto;
     }
 }
