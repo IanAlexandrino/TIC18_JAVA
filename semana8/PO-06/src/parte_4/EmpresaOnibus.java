@@ -156,6 +156,12 @@ public class EmpresaOnibus {
         }
     }
 
+    public void carregaDados(){
+
+        pontosParadas.addAll(PontosParadaCSV.carregaDadosArquivo());
+
+    }
+
     public void simulaViagem(){
 
     }
@@ -650,6 +656,7 @@ public class EmpresaOnibus {
 
 
         EmpresaOnibus empresaOnibus = new EmpresaOnibus();
+        empresaOnibus.carregaDados();
         Scanner entrada = new Scanner(System.in);
         boolean auxwhile = true;
         int auxMenuPrincipal;
