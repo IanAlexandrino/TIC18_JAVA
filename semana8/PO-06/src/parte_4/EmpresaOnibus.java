@@ -117,6 +117,7 @@ public class EmpresaOnibus {
 
     public void setTrechos(Trecho trecho) {
         this.trechos.add(trecho);
+        TrechoCSV.insereDadosArquivo(trecho);
     }
 
     public void getTrechos(){
