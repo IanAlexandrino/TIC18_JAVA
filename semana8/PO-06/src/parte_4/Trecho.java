@@ -23,16 +23,16 @@ public class Trecho {
         this.origemTrecho = origemTrecho;
     }
 
-    public void getOrigemTrecho() {
-        System.out.println(origemTrecho.getLocal());
+    public String getOrigemTrecho() {
+        return origemTrecho.getLocal();
     }
 
     public void setDestinoTrecho(PontosParada destinoTrecho) {
         this.destinoTrecho = destinoTrecho;
     }
 
-    public void getDestinoTrecho() {
-        System.out.println(destinoTrecho.getLocal());
+    public String getDestinoTrecho() {
+        return destinoTrecho.getLocal();
     }
 
     public void setIntervalo(int intervalo) {

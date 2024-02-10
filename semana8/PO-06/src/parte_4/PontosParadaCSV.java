@@ -2,6 +2,7 @@ package parte_4;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class PontosParadaCSV {
 
@@ -30,7 +31,9 @@ public class PontosParadaCSV {
 
     }
 
-    public static void carregaDadosArquivo(){
+    public static ArrayList<PontosParada> carregaDadosArquivo(){
+
+        ArrayList<PontosParada> pontosParadas = new ArrayList<>();
 
         try (BufferedReader br = new BufferedReader(new FileReader(arquivo))){
 
@@ -40,7 +43,7 @@ public class PontosParadaCSV {
                 String local = br.readLine();
                 PontosParada pontosParada = new PontosParada();
                 pontosParada.setLocal(local);
-
+                pontosParadas.add(pontosParada);
 
             }
 
@@ -49,6 +52,6 @@ public class PontosParadaCSV {
             System.out.println("Erro: " + e.getMessage());
 
         }
-
+        return pontosParadas;
     }
 }
