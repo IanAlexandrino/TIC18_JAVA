@@ -160,6 +160,7 @@ public class EmpresaOnibus {
     public void carregaDados(){
 
         pontosParadas.addAll(PontosParadaCSV.carregaDadosArquivo());
+        trechos.addAll(TrechoCSV.carregaDadosArquivo());
 
     }
 

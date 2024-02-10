@@ -1,10 +1,8 @@
 package parte_4;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 
 public class TrechoCSV {
 
@@ -31,6 +29,37 @@ public class TrechoCSV {
 
         }
 
+    }
+
+    public static ArrayList<Trecho> carregaDadosArquivo(){
+
+        ArrayList<Trecho> trechos = new ArrayList<>();
+
+        try (BufferedReader br = new BufferedReader(new FileReader(arquivo))){
+
+            String linha;
+            br.readLine();
+            while (br.ready()){
+
+                linha = br.readLine();
+                String[] vect = linha.split(";");
+                Trecho trecho = new Trecho();
+                PontosParada pontosParadaOrigem = new PontosParada();
+                PontosParada pontosParadaDestino = new PontosParada();
+                pontosParadaOrigem.setLocal(vect[0]);
+                pontosParadaOrigem.setLocal(vect[1]);
+                trecho.setOrigemTrecho(pontosParadaOrigem);
+                trecho.setDestinoTrecho(pontosParadaDestino);
+                trechos.add(trecho);
+
+            }
+
+        } catch (IOException e){
+
+            System.out.println("Erro: " + e.getMessage());
+
+        }
+        return trechos;
     }
 
 }
