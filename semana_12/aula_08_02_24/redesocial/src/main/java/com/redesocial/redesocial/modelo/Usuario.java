@@ -1,7 +1,15 @@
 package com.redesocial.redesocial.modelo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Usuario {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
     private String email;
@@ -12,6 +20,7 @@ public class Usuario {
     }
 
     public Usuario(Long id, String nome, String email, String senha) {
+        super();
         this.id = id;
         this.nome = nome;
         this.email = email;

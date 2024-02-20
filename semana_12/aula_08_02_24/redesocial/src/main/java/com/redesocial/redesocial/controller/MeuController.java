@@ -62,7 +62,7 @@ public class MeuController {
 
     @RequestMapping("/gerachavesrsa")
     public ArrayList<String> retornaChavesRsa(){
-        RSAGenerator rsaGenerator = new RSAGenerator(124);
+        RSAGenerator rsaGenerator = new RSAGenerator(1024);
         ArrayList<String> privatePublic = new ArrayList<>();
         String privateKey;
         String publicKey;
