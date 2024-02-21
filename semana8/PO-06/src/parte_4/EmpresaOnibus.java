@@ -101,6 +101,7 @@ public class EmpresaOnibus {
     public void setTrajetos(Trajeto trajeto){
 
         this.trajetos.add(trajeto);
+        TrajetoCSV.insereDadosArquivo(trajeto);
 
     }
 
@@ -438,9 +439,10 @@ public class EmpresaOnibus {
 
                         while (auxLoopTrecho){
 
+                            Scanner entradaIdTrecho = new Scanner(System.in);
                             System.out.println("Escolha o id de um trecho para adicionar no trajeto: ");
                             getTrechos();
-                            auxIdTrecho = entrada.nextInt();
+                            auxIdTrecho = entradaIdTrecho.nextInt();
 
                             for (Trecho trecho : trechos){
 
@@ -452,9 +454,10 @@ public class EmpresaOnibus {
 
                             }
 
+                            Scanner entradaMaisTrechos = new Scanner(System.in);
                             System.out.println("Deseja adicionar mais trechos ao trajeto(S/N)?");
-                            auxUserLoopTrecho = entrada.nextLine();
-                            if (auxUserLoopTrecho == "N"){
+                            auxUserLoopTrecho = entradaMaisTrechos.nextLine();
+                            if (Objects.equals(auxUserLoopTrecho, "N")){
 
                                 auxLoopTrecho = false;
                                 setTrajetos(trajeto);
