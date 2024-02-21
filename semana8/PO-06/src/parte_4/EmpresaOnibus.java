@@ -161,6 +161,7 @@ public class EmpresaOnibus {
 
         pontosParadas.addAll(PontosParadaCSV.carregaDadosArquivo());
         trechos.addAll(TrechoCSV.carregaDadosArquivo());
+        trajetos.addAll(TrajetoCSV.carregaDadosArquivo());
 
     }
 
