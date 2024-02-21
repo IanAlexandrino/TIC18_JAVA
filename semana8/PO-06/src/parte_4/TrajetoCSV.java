@@ -23,7 +23,13 @@ public class TrajetoCSV {
 
             }
 
-            bw.write(trecho.getOrigemTrecho() + ";" + trecho.getDestinoTrecho() + "\n");
+            for (Trecho trecho : trajeto.getTrajeto()){
+
+                bw.write(trecho.getOrigemTrecho() + "-" + trecho.getDestinoTrecho() + "/");
+
+            }
+
+            bw.write("\n");
 
         } catch (IOException e){
 
