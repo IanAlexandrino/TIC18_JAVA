@@ -52,4 +52,10 @@ public class UsuarioController {
         return lista;
     }
 
+    @GetMapping("/{id}")
+    public UsuarioDTO listaUsuariosId(@PathVariable Integer id){
+
+        return new UsuarioDTO(usuarioRepository.getReferenceById(id));
+    }
+
 }
