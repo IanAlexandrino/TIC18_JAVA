@@ -69,4 +69,27 @@ public class UsuarioController {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateUsuario(@PathVariable Integer id,
+                                                    @RequestBody UserForm UF){
+
+        try {
+
+           Usuario usuario = usuarioRepository.getReferenceById(id);
+           usuario.setNome(UF.getNome());
+           usuario.setEmail(UF.getEmail());
+           usuario.setSenha(UF.getSenha());
+           usuarioRepository.save(usuario);
+           UsuarioDTO usuarioDTO = new UsuarioDTO(usuario);
+
+           return ResponseEntity.ok(usuarioDTO);
+
+        } catch (Exception e) {
+
+            return ResponseEntity.notFound().build();
+
+        }
+
+    }
+
 }
