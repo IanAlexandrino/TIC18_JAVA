@@ -53,9 +53,20 @@ public class UsuarioController {
     }
 
     @GetMapping("/{id}")
-    public UsuarioDTO listaUsuariosId(@PathVariable Integer id){
+    public ResponseEntity<?> listaUsuariosId(@PathVariable Integer id){
 
-        return new UsuarioDTO(usuarioRepository.getReferenceById(id));
+        try {
+
+            Usuario usuario = usuarioRepository.getReferenceById(id);
+            UsuarioDTO usuarioDTO = new UsuarioDTO(usuario);
+            return ResponseEntity.ok(usuarioDTO);
+
+        } catch (Exception e) {
+
+            return ResponseEntity.notFound().build();
+
+        }
+
     }
 
 }
