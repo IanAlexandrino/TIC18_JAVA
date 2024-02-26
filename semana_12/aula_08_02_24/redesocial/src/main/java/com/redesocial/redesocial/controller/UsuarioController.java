@@ -4,6 +4,7 @@ import com.redesocial.redesocial.controller.dto.UsuarioDTO;
 import com.redesocial.redesocial.controller.Form.UserForm;
 import com.redesocial.redesocial.modelo.Usuario;
 import com.redesocial.redesocial.repository.UsuarioRepository;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -72,6 +73,11 @@ public class UsuarioController {
     @PutMapping("/{id}")
     public ResponseEntity<?> updateUsuario(@PathVariable Integer id,
                                                     @RequestBody UserForm UF){
+        if (id == null){
+
+            return ResponseEntity.badRequest().build();
+
+        }
 
         try {
 
@@ -85,6 +91,31 @@ public class UsuarioController {
            return ResponseEntity.ok(usuarioDTO);
 
         } catch (Exception e) {
+
+            return ResponseEntity.notFound().build();
+
+        }
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaUsuario(@PathVariable Integer id){
+
+        if (id == null){
+
+            return ResponseEntity.badRequest().build();
+
+        }
+
+        try {
+
+            Usuario usuario = usuarioRepository.getReferenceById(id);
+            usuarioRepository.delete(usuario);
+            UsuarioDTO usuarioDTO = new UsuarioDTO(usuario);
+
+            return ResponseEntity.ok(usuarioDTO);
+
+        } catch (Exception e){
 
             return ResponseEntity.notFound().build();
 
