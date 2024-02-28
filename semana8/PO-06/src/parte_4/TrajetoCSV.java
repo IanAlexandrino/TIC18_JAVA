@@ -49,11 +49,16 @@ public class TrajetoCSV {
             while (br.ready()){
 
                 linha = br.readLine();
-                String[] vect = linha.split("-/");
-                System.out.println(Arrays.toString(vect));
+                String[] vect = linha.split("/");
                 int j;
+                /*System.out.println(vect[0]);*/
+                /*System.out.println(vect.length);*/
+                /*System.out.println(vect[0]);*/
+                /*System.out.println(vect[1]);*/
+                /*System.out.println(vect[2]);*/
+                System.out.println(vect[3]);
 
-                for (int i = 1 ; i < vect.length ; i += 2){
+                /*for (int i = 1 ; i < vect.length ; i += 2){
 
                     j = i - 1;
                     Trajeto trajeto = new Trajeto();
@@ -61,15 +66,15 @@ public class TrajetoCSV {
                     PontosParada pontosParadaOrigem = new PontosParada();
                     PontosParada pontosParadaDestino = new PontosParada();
                     pontosParadaOrigem.setLocal(vect[j]);
-                    System.out.println(j);
-                    System.out.println(i);
+                    System.out.println(vect[j]);
                     pontosParadaDestino.setLocal(vect[i]);
+                    System.out.println(i);
                     trecho.setOrigemTrecho(pontosParadaOrigem);
                     trecho.setDestinoTrecho(pontosParadaDestino);
                     trajeto.setTrajeto(trecho);
                     trajetos.add(trajeto);
 
-                }
+                }*/
 
             }
 
