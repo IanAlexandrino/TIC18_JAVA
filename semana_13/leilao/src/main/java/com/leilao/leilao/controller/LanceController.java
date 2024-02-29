@@ -33,8 +33,8 @@ public class LanceController {
         return lista;
     }
 
-    /*@GetMapping("/{id}")
-    public ResponseEntity<?> listaLeiloesId(@PathVariable Integer id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> listaLancesId(@PathVariable Integer id) {
 
         if (id == null) {
 
@@ -44,9 +44,9 @@ public class LanceController {
 
         try {
 
-            Leilao leilao = leilaoRepository.getReferenceById(id);
-            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
-            return ResponseEntity.ok(leilaoDTO);
+            Lance lance = lanceRepository.getReferenceById(id);
+            LanceDTO lanceDTO = new LanceDTO(lance);
+            return ResponseEntity.ok(lanceDTO);
 
         } catch (Exception e) {
 
@@ -56,7 +56,7 @@ public class LanceController {
 
     }
 
-    @PostMapping
+    /*@PostMapping
     public ResponseEntity<LeilaoDTO> inserir
             (@RequestBody LeilaoForm LF,
              UriComponentsBuilder UB) {
