@@ -1,6 +1,7 @@
 package com.leilao.leilao.controller;
 
 import com.leilao.leilao.controller.dto.LanceDTO;
+import com.leilao.leilao.controller.form.LanceForm;
 import com.leilao.leilao.model.Lance;
 import com.leilao.leilao.repository.LanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,8 +34,8 @@ public class LanceController {
         return lista;
     }
 
-    /*@GetMapping("/{id}")
-    public ResponseEntity<?> listaLeiloesId(@PathVariable Integer id) {
+    @GetMapping("/{id}")
+    public ResponseEntity<?> listaLancesId(@PathVariable Integer id) {
 
         if (id == null) {
 
@@ -44,9 +45,9 @@ public class LanceController {
 
         try {
 
-            Leilao leilao = leilaoRepository.getReferenceById(id);
-            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
-            return ResponseEntity.ok(leilaoDTO);
+            Lance lance = lanceRepository.getReferenceById(id);
+            LanceDTO lanceDTO = new LanceDTO(lance);
+            return ResponseEntity.ok(lanceDTO);
 
         } catch (Exception e) {
 
@@ -57,22 +58,22 @@ public class LanceController {
     }
 
     @PostMapping
-    public ResponseEntity<LeilaoDTO> inserir
-            (@RequestBody LeilaoForm LF,
+    public ResponseEntity<LanceDTO> inserir
+            (@RequestBody LanceForm LF,
              UriComponentsBuilder UB) {
 
-        Leilao leilao = LF.criaLeilao();
-        leilaoRepository.save(leilao);
-        LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
-        UB.path("/leilao/{id}");
-        URI uri = UB.buildAndExpand(leilao.getId()).toUri();
+        Lance lance = LF.criaLance();
+        lanceRepository.save(lance);
+        LanceDTO lanceDTO = new LanceDTO(lance);
+        UB.path("/lance/{id}");
+        URI uri = UB.buildAndExpand(lance.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(leilaoDTO);
+        return ResponseEntity.created(uri).body(lanceDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<?> updateLeilao(@PathVariable Integer id,
-                                          @RequestBody LeilaoForm LF) {
+    public ResponseEntity<?> updateLance(@PathVariable Integer id,
+                                          @RequestBody LanceForm LF) {
 
         if (id == null) {
 
@@ -82,15 +83,14 @@ public class LanceController {
 
         try {
 
-            Leilao leilao = leilaoRepository.getReferenceById(id);
-            leilao.setDescricao(LF.getDescricao());
-            leilao.setValorMinimo(LF.getValorMinimo());
-            leilao.setStatus(LF.getStatus());
-            leilao.setListaLances(LF.getListaLances());
-            leilaoRepository.save(leilao);
-            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
+            Lance lance = lanceRepository.getReferenceById(id);
+            lance.setValor(LF.getValor());
+            lance.setLeilao(LF.getLeilao());
+            lance.setConcorrente(LF.getConcorrente());
+            lanceRepository.save(lance);
+            LanceDTO lanceDTO = new LanceDTO(lance);
 
-            return ResponseEntity.ok(leilaoDTO);
+            return ResponseEntity.ok(lanceDTO);
 
         } catch (Exception e) {
 
@@ -101,7 +101,7 @@ public class LanceController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deletaLeilao(@PathVariable Integer id) {
+    public ResponseEntity<?> deletaLance(@PathVariable Integer id) {
 
         if (id == null) {
 
@@ -111,12 +111,12 @@ public class LanceController {
 
         try {
 
-            Leilao leilao = leilaoRepository.getReferenceById(id);
-            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
-            leilaoRepository.delete(leilao);
+            Lance lance = lanceRepository.getReferenceById(id);
+            LanceDTO lanceDTO = new LanceDTO(lance);
+            lanceRepository.delete(lance);
 
 
-            return ResponseEntity.ok(leilaoDTO);
+            return ResponseEntity.ok(lanceDTO);
 
         } catch (Exception e) {
 
@@ -124,6 +124,6 @@ public class LanceController {
 
         }
 
-    }*/
+    }
 
 }
