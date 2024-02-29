@@ -65,7 +65,7 @@ public class ConcorrenteController {
         Concorrente concorrente = CF.criaConcorrente();
         concorrenteRepository.save(concorrente);
         ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
-        UB.path("/concorrentes/{id}");
+        UB.path("/concorrente/{id}");
         URI uri = UB.buildAndExpand(concorrente.getId()).toUri();
 
         return ResponseEntity.created(uri).body(concorrenteDTO);

@@ -3,6 +3,7 @@ package com.leilao.leilao.controller;
 import com.leilao.leilao.controller.dto.ConcorrenteDTO;
 import com.leilao.leilao.controller.dto.LeilaoDTO;
 import com.leilao.leilao.controller.form.ConcorrenteForm;
+import com.leilao.leilao.controller.form.LeilaoForm;
 import com.leilao.leilao.model.Concorrente;
 import com.leilao.leilao.model.Leilao;
 import com.leilao.leilao.repository.ConcorrenteRepository;
@@ -48,9 +49,9 @@ public class LeilaoController {
 
         try{
 
-            Concorrente concorrente = concorrenteRepository.getReferenceById(id);
-            ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
-            return ResponseEntity.ok(concorrenteDTO);
+            Leilao leilao = leilaoRepository.getReferenceById(id);
+            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
+            return ResponseEntity.ok(leilaoDTO);
 
         } catch (Exception e){
 
@@ -60,21 +61,21 @@ public class LeilaoController {
 
     }
 
-    /*@PostMapping
-    public ResponseEntity<ConcorrenteDTO> inserir
-            (@RequestBody ConcorrenteForm CF,
+    @PostMapping
+    public ResponseEntity<LeilaoDTO> inserir
+            (@RequestBody LeilaoForm LF,
              UriComponentsBuilder UB){
 
-        Concorrente concorrente = CF.criaConcorrente();
-        concorrenteRepository.save(concorrente);
-        ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
-        UB.path("/concorrentes/{id}");
-        URI uri = UB.buildAndExpand(concorrente.getId()).toUri();
+        Leilao leilao = LF.criaLeilao();
+        leilaoRepository.save(leilao);
+        LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
+        UB.path("/leilao/{id}");
+        URI uri = UB.buildAndExpand(leilao.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(concorrenteDTO);
+        return ResponseEntity.created(uri).body(leilaoDTO);
     }
 
-    @PutMapping("/{id}")
+    /*@PutMapping("/{id}")
     public ResponseEntity<?> updateConcorrente(@PathVariable Integer id,
                                                @RequestBody ConcorrenteForm CF){
 
