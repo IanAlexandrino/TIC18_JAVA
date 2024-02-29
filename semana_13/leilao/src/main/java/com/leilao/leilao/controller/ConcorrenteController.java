@@ -6,13 +6,12 @@ import com.leilao.leilao.model.Concorrente;
 import com.leilao.leilao.repository.ConcorrenteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/concorrente/")
@@ -34,4 +33,19 @@ public class ConcorrenteController {
 
         return ResponseEntity.created(uri).body(concorrenteDTO);
     }
+
+    @GetMapping
+    public List<ConcorrenteDTO> retornaConcorrentes(String name) {
+
+        List<Concorrente> listaConcorrentes = (ArrayList<Concorrente>) concorrenteRepository.findAll();
+        List<ConcorrenteDTO> lista = new ArrayList<ConcorrenteDTO>();
+        for (Concorrente concorrente : listaConcorrentes){
+
+            ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
+            lista.add(concorrenteDTO);
+
+        }
+        return lista;
+    }
+
 }
