@@ -65,7 +65,7 @@ public class ConcorrenteController {
         Concorrente concorrente = CF.criaConcorrente();
         concorrenteRepository.save(concorrente);
         ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
-        UB.path("/concorrentes/{id}");
+        UB.path("/concorrente/{id}");
         URI uri = UB.buildAndExpand(concorrente.getId()).toUri();
 
         return ResponseEntity.created(uri).body(concorrenteDTO);
@@ -93,6 +93,32 @@ public class ConcorrenteController {
             return ResponseEntity.ok(concorrenteDTO);
 
         } catch (Exception e){
+
+            return ResponseEntity.notFound().build();
+
+        }
+
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaConcorrente(@PathVariable Integer id){
+
+        if (id == null){
+
+            return ResponseEntity.badRequest().build();
+
+        }
+
+        try {
+
+            Concorrente concorrente = concorrenteRepository.getReferenceById(id);
+            ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
+            concorrenteRepository.delete(concorrente);
+
+
+            return ResponseEntity.ok(concorrenteDTO);
+
+        }catch (Exception e){
 
             return ResponseEntity.notFound().build();
 
