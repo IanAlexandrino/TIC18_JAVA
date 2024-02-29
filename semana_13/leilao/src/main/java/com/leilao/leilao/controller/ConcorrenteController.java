@@ -48,4 +48,28 @@ public class ConcorrenteController {
         return lista;
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> listaConcorrentesId(@PathVariable Integer id){
+
+        if (id == null){
+
+            return ResponseEntity.badRequest().build();
+
+        }
+
+        try{
+
+            Concorrente concorrente = concorrenteRepository.getReferenceById(id);
+            ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
+            return ResponseEntity.ok(concorrenteDTO);
+
+        } catch (Exception e){
+
+            return ResponseEntity.notFound().build();
+
+        }
+
+    }
+
+
 }
