@@ -100,8 +100,8 @@ public class LanceController {
 
     }
 
-    /*@DeleteMapping("/{id}")
-    public ResponseEntity<?> deletaLeilao(@PathVariable Integer id) {
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaLance(@PathVariable Integer id) {
 
         if (id == null) {
 
@@ -111,12 +111,12 @@ public class LanceController {
 
         try {
 
-            Leilao leilao = leilaoRepository.getReferenceById(id);
-            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
-            leilaoRepository.delete(leilao);
+            Lance lance = lanceRepository.getReferenceById(id);
+            LanceDTO lanceDTO = new LanceDTO(lance);
+            lanceRepository.delete(lance);
 
 
-            return ResponseEntity.ok(leilaoDTO);
+            return ResponseEntity.ok(lanceDTO);
 
         } catch (Exception e) {
 
@@ -124,6 +124,6 @@ public class LanceController {
 
         }
 
-    }*/
+    }
 
 }
