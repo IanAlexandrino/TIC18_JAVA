@@ -71,9 +71,9 @@ public class LanceController {
         return ResponseEntity.created(uri).body(lanceDTO);
     }
 
-    /*@PutMapping("/{id}")
-    public ResponseEntity<?> updateLeilao(@PathVariable Integer id,
-                                          @RequestBody LeilaoForm LF) {
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateLance(@PathVariable Integer id,
+                                          @RequestBody LanceForm LF) {
 
         if (id == null) {
 
@@ -83,15 +83,14 @@ public class LanceController {
 
         try {
 
-            Leilao leilao = leilaoRepository.getReferenceById(id);
-            leilao.setDescricao(LF.getDescricao());
-            leilao.setValorMinimo(LF.getValorMinimo());
-            leilao.setStatus(LF.getStatus());
-            leilao.setListaLances(LF.getListaLances());
-            leilaoRepository.save(leilao);
-            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
+            Lance lance = lanceRepository.getReferenceById(id);
+            lance.setValor(LF.getValor());
+            lance.setLeilao(LF.getLeilao());
+            lance.setConcorrente(LF.getConcorrente());
+            lanceRepository.save(lance);
+            LanceDTO lanceDTO = new LanceDTO(lance);
 
-            return ResponseEntity.ok(leilaoDTO);
+            return ResponseEntity.ok(lanceDTO);
 
         } catch (Exception e) {
 
@@ -101,7 +100,7 @@ public class LanceController {
 
     }
 
-    @DeleteMapping("/{id}")
+    /*@DeleteMapping("/{id}")
     public ResponseEntity<?> deletaLeilao(@PathVariable Integer id) {
 
         if (id == null) {
