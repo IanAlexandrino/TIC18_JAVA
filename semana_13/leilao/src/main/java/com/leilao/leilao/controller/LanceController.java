@@ -1,6 +1,7 @@
 package com.leilao.leilao.controller;
 
 import com.leilao.leilao.controller.dto.LanceDTO;
+import com.leilao.leilao.controller.form.LanceForm;
 import com.leilao.leilao.model.Lance;
 import com.leilao.leilao.repository.LanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,21 +57,21 @@ public class LanceController {
 
     }
 
-    /*@PostMapping
-    public ResponseEntity<LeilaoDTO> inserir
-            (@RequestBody LeilaoForm LF,
+    @PostMapping
+    public ResponseEntity<LanceDTO> inserir
+            (@RequestBody LanceForm LF,
              UriComponentsBuilder UB) {
 
-        Leilao leilao = LF.criaLeilao();
-        leilaoRepository.save(leilao);
-        LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
-        UB.path("/leilao/{id}");
-        URI uri = UB.buildAndExpand(leilao.getId()).toUri();
+        Lance lance = LF.criaLance();
+        lanceRepository.save(lance);
+        LanceDTO lanceDTO = new LanceDTO(lance);
+        UB.path("/lance/{id}");
+        URI uri = UB.buildAndExpand(lance.getId()).toUri();
 
-        return ResponseEntity.created(uri).body(leilaoDTO);
+        return ResponseEntity.created(uri).body(lanceDTO);
     }
 
-    @PutMapping("/{id}")
+    /*@PutMapping("/{id}")
     public ResponseEntity<?> updateLeilao(@PathVariable Integer id,
                                           @RequestBody LeilaoForm LF) {
 
