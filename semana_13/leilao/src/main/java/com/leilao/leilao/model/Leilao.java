@@ -1,9 +1,8 @@
 package com.leilao.leilao.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Leilao {
@@ -13,15 +12,18 @@ public class Leilao {
     private String descricao;
     private Double valorMinimo;
     private Boolean status;
+    @OneToMany
+    List<Lance> listaLances;
 
     public Leilao() {
     }
 
-    public Leilao(Long id, String descricao, Double valorMinimo, Boolean status) {
+    public Leilao(Long id, String descricao, Double valorMinimo, Boolean status, List<Lance> listaLances) {
         this.id = id;
         this.descricao = descricao;
         this.valorMinimo = valorMinimo;
         this.status = status;
+        this.listaLances = listaLances;
     }
 
     public Long getId() {
@@ -54,5 +56,13 @@ public class Leilao {
 
     public void setStatus(Boolean status) {
         this.status = status;
+    }
+
+    public List<Lance> getListaLances() {
+        return listaLances;
+    }
+
+    public void setListaLances(List<Lance> listaLances) {
+        this.listaLances = listaLances;
     }
 }

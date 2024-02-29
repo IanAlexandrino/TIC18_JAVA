@@ -1,9 +1,8 @@
 package com.leilao.leilao.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Concorrente {
@@ -12,14 +11,17 @@ public class Concorrente {
     private Long id;
     private String nome;
     private String cpf;
+    @OneToMany
+    List<Lance> listaLances;
 
     public Concorrente() {
     }
 
-    public Concorrente(Long id, String nome, String cpf) {
+    public Concorrente(Long id, String nome, String cpf, List<Lance> listaLances) {
         this.id = id;
         this.nome = nome;
         this.cpf = cpf;
+        this.listaLances = listaLances;
     }
 
     public Long getId() {
@@ -44,5 +46,13 @@ public class Concorrente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public List<Lance> getListaLances() {
+        return listaLances;
+    }
+
+    public void setListaLances(List<Lance> listaLances) {
+        this.listaLances = listaLances;
     }
 }
