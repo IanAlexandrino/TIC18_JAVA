@@ -1,12 +1,8 @@
 package com.leilao.leilao.controller;
 
-import com.leilao.leilao.controller.dto.ConcorrenteDTO;
 import com.leilao.leilao.controller.dto.LeilaoDTO;
-import com.leilao.leilao.controller.form.ConcorrenteForm;
 import com.leilao.leilao.controller.form.LeilaoForm;
-import com.leilao.leilao.model.Concorrente;
 import com.leilao.leilao.model.Leilao;
-import com.leilao.leilao.repository.ConcorrenteRepository;
 import com.leilao.leilao.repository.LeilaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
