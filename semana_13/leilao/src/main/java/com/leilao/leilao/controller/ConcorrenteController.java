@@ -71,7 +71,7 @@ public class ConcorrenteController {
         return ResponseEntity.created(uri).body(concorrenteDTO);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<?> updateConcorrente(@PathVariable Integer id,
                                                @RequestBody ConcorrenteForm CF){
 
