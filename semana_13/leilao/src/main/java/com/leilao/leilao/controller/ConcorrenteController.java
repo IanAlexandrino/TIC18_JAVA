@@ -20,20 +20,6 @@ public class ConcorrenteController {
     @Autowired
     private ConcorrenteRepository concorrenteRepository;
 
-    @PostMapping
-    public ResponseEntity<ConcorrenteDTO> inserir
-            (@RequestBody ConcorrenteForm CF,
-             UriComponentsBuilder UB){
-
-        Concorrente concorrente = CF.criaConcorrente();
-        concorrenteRepository.save(concorrente);
-        ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
-        UB.path("/concorrentes/{id}");
-        URI uri = UB.buildAndExpand(concorrente.getId()).toUri();
-
-        return ResponseEntity.created(uri).body(concorrenteDTO);
-    }
-
     @GetMapping
     public List<ConcorrenteDTO> retornaConcorrentes(String name) {
 
@@ -71,5 +57,47 @@ public class ConcorrenteController {
 
     }
 
+    @PostMapping
+    public ResponseEntity<ConcorrenteDTO> inserir
+            (@RequestBody ConcorrenteForm CF,
+             UriComponentsBuilder UB){
+
+        Concorrente concorrente = CF.criaConcorrente();
+        concorrenteRepository.save(concorrente);
+        ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
+        UB.path("/concorrentes/{id}");
+        URI uri = UB.buildAndExpand(concorrente.getId()).toUri();
+
+        return ResponseEntity.created(uri).body(concorrenteDTO);
+    }
+
+    @PutMapping
+    public ResponseEntity<?> updateConcorrente(@PathVariable Integer id,
+                                               @RequestBody ConcorrenteForm CF){
+
+        if (id == null){
+
+            return ResponseEntity.badRequest().build();
+
+        }
+
+        try{
+
+            Concorrente concorrente = concorrenteRepository.getReferenceById(id);
+            concorrente.setNome(CF.getNome());
+            concorrente.setCpf(CF.getCpf());
+            concorrente.setListaLances(CF.getListaLances());
+            concorrenteRepository.save(concorrente);
+            ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
+
+            return ResponseEntity.ok(concorrenteDTO);
+
+        } catch (Exception e){
+
+            return ResponseEntity.notFound().build();
+
+        }
+
+    }
 
 }
