@@ -1,9 +1,8 @@
 package com.leilao.leilao.controller;
 
-import com.leilao.leilao.controller.dto.LeilaoDTO;
-import com.leilao.leilao.controller.form.LeilaoForm;
-import com.leilao.leilao.model.Leilao;
-import com.leilao.leilao.repository.LeilaoRepository;
+import com.leilao.leilao.controller.dto.LanceDTO;
+import com.leilao.leilao.model.Lance;
+import com.leilao.leilao.repository.LanceRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,23 +17,23 @@ import java.util.List;
 public class LanceController {
 
     @Autowired
-    private LeilaoRepository leilaoRepository;
+    private LanceRepository lanceRepository;
 
     @GetMapping
-    public List<LeilaoDTO> retornaLeiloes() {
+    public List<LanceDTO> retornaLances() {
 
-        List<Leilao> listaLeiloes = (ArrayList<Leilao>) leilaoRepository.findAll();
-        List<LeilaoDTO> lista = new ArrayList<LeilaoDTO>();
-        for (Leilao leilao : listaLeiloes) {
+        List<Lance> listaLances = (ArrayList<Lance>) lanceRepository.findAll();
+        List<LanceDTO> lista = new ArrayList<LanceDTO>();
+        for (Lance lance : listaLances) {
 
-            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
-            lista.add(leilaoDTO);
+            LanceDTO lanceDTO = new LanceDTO(lance);
+            lista.add(lanceDTO);
 
         }
         return lista;
     }
 
-    @GetMapping("/{id}")
+    /*@GetMapping("/{id}")
     public ResponseEntity<?> listaLeiloesId(@PathVariable Integer id) {
 
         if (id == null) {
@@ -125,6 +124,6 @@ public class LanceController {
 
         }
 
-    }
+    }*/
 
 }
