@@ -15,7 +15,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import java.net.URI;
 
 @RestController
-@RequestMapping("/concorrentes/")
+@RequestMapping("/concorrente/")
 public class ConcorrenteController {
 
     @Autowired
