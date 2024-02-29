@@ -29,7 +29,7 @@ public class LeilaoController {
 
         List<Leilao> listaLeiloes = (ArrayList<Leilao>) leilaoRepository.findAll();
         List<LeilaoDTO> lista = new ArrayList<LeilaoDTO>();
-        for (Leilao leilao : listaLeiloes){
+        for (Leilao leilao : listaLeiloes) {
 
             LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
             lista.add(leilaoDTO);
@@ -39,21 +39,21 @@ public class LeilaoController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> listaLeiloesId(@PathVariable Integer id){
+    public ResponseEntity<?> listaLeiloesId(@PathVariable Integer id) {
 
-        if (id == null){
+        if (id == null) {
 
             return ResponseEntity.badRequest().build();
 
         }
 
-        try{
+        try {
 
             Leilao leilao = leilaoRepository.getReferenceById(id);
             LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
             return ResponseEntity.ok(leilaoDTO);
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             return ResponseEntity.notFound().build();
 
@@ -64,7 +64,7 @@ public class LeilaoController {
     @PostMapping
     public ResponseEntity<LeilaoDTO> inserir
             (@RequestBody LeilaoForm LF,
-             UriComponentsBuilder UB){
+             UriComponentsBuilder UB) {
 
         Leilao leilao = LF.criaLeilao();
         leilaoRepository.save(leilao);
@@ -77,15 +77,15 @@ public class LeilaoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateLeilao(@PathVariable Integer id,
-                                               @RequestBody LeilaoForm LF){
+                                          @RequestBody LeilaoForm LF) {
 
-        if (id == null){
+        if (id == null) {
 
             return ResponseEntity.badRequest().build();
 
         }
 
-        try{
+        try {
 
             Leilao leilao = leilaoRepository.getReferenceById(id);
             leilao.setDescricao(LF.getDescricao());
@@ -97,7 +97,7 @@ public class LeilaoController {
 
             return ResponseEntity.ok(leilaoDTO);
 
-        } catch (Exception e){
+        } catch (Exception e) {
 
             return ResponseEntity.notFound().build();
 
@@ -105,10 +105,10 @@ public class LeilaoController {
 
     }
 
-    /*@DeleteMapping("/{id}")
-    public ResponseEntity<?> deletaConcorrente(@PathVariable Integer id){
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deletaLeilao(@PathVariable Integer id) {
 
-        if (id == null){
+        if (id == null) {
 
             return ResponseEntity.badRequest().build();
 
@@ -116,19 +116,20 @@ public class LeilaoController {
 
         try {
 
-            Concorrente concorrente = concorrenteRepository.getReferenceById(id);
-            ConcorrenteDTO concorrenteDTO = new ConcorrenteDTO(concorrente);
-            concorrenteRepository.delete(concorrente);
+            Leilao leilao = leilaoRepository.getReferenceById(id);
+            LeilaoDTO leilaoDTO = new LeilaoDTO(leilao);
+            leilaoRepository.delete(leilao);
 
 
-            return ResponseEntity.ok(concorrenteDTO);
+            return ResponseEntity.ok(leilaoDTO);
 
-        }catch (Exception e){
+        } catch (Exception e) {
 
             return ResponseEntity.notFound().build();
 
-        }*/
+        }
 
     }
 
+}
 
