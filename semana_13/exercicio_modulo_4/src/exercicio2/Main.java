@@ -10,8 +10,7 @@ public class Main {
         Locale.setDefault(Locale.US);
         Scanner entrada = new Scanner(System.in);
 
-        double raioCirculo;
-        double areaCirculo;
+        double raioCirculo, areaCirculo;
 
         raioCirculo = entrada.nextDouble();
         areaCirculo = 3.14159 * Math.pow(raioCirculo, 2);

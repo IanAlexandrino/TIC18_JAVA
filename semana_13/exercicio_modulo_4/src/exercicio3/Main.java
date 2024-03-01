@@ -1,4 +1,4 @@
-package exercicio1;
+package exercicio3;
 
 import java.util.Scanner;
 
@@ -8,13 +8,14 @@ public class Main {
 
         Scanner entrada = new Scanner(System.in);
 
-        int A, B;
+        int A, B, C, D;
 
         A = entrada.nextInt();
         B = entrada.nextInt();
+        C = entrada.nextInt();
+        D = entrada.nextInt();
 
-        System.out.println("SOMA = " + (A+B));
-        entrada.close();
+        System.out.println("DIFERENCA = " + (A * B - C * D));
     }
 
 }
