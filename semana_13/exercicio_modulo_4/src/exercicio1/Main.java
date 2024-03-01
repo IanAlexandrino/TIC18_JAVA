@@ -15,6 +15,7 @@ public class Main {
         B = entrada.nextInt();
 
         System.out.println("SOMA = " + (A+B));
+        entrada.close();
     }
 
 }
